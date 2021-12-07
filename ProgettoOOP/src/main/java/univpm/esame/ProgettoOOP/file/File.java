@@ -51,7 +51,7 @@ public class File {
 	}
 
 
-	public void getLink(String link) {
+	public String getLink() {
 		return link;
 	}
 	public void setLink(String link) {
