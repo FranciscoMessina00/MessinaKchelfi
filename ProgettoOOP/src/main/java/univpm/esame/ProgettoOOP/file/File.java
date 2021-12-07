@@ -1,14 +1,20 @@
 package univpm.esame.ProgettoOOP.file;
 
-public class File {
+public abstract class File {
+    //Nome del file
     private String nome;
+    //Estensione del file
 	private String estensione;
+    //Grandezza del file
     private long grandezza;
+    //Tipo del file
 	private String tipo;
+    //Percorso del file all'interno di Dropbox
 	private String link;
+    //Boolean per indicare se il file è condiviso o non accessibile
 	private boolean condivisione;
 
-
+    //Costruttore della classe "File" senza parametri
 	public File() {
 		this.nome=null;
 		this.estensione=null;
@@ -18,6 +24,7 @@ public class File {
 		this.condivisione = false;
 	}
 	
+    //Costruttore della classe "File" con parametri
 	public File(String nome, String estensione, String tipo, int grandezza , String link, boolean condivisione) {
 		this.nome = nome;
 		this.estensione = estensione;
