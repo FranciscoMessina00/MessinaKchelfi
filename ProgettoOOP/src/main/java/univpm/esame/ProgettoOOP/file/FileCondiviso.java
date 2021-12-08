@@ -14,7 +14,7 @@ public class FileCondiviso extends FileAstratto{
 		this.autore=autore;
 	}
 	
-	//Getter e setter dell'autore
+	//Getter e Setter dell'autore
 	public String getAutore() {
 		return autore;
 	}

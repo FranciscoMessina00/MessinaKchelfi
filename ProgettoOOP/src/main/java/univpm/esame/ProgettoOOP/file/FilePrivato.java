@@ -13,10 +13,10 @@ public class FilePrivato extends FileAstratto{
 	//Override toString
 	public String toString() {
 		return "Nome file: "+this.nome+"."+this.estensione+
-				"\r\nTipo: "+this.tipo+
-				"\r\nGrandezza: "+this.grandezza+" bytes"+
-				"\r\nPath: "+this.path+
-				"\r\nCondiviso: No";
+				"\nTipo: "+this.tipo+
+				"\nGrandezza: "+this.grandezza+" bytes"+
+				"\nPath: "+this.path+
+				"\nCondiviso: No";
 	}
 	
 }
