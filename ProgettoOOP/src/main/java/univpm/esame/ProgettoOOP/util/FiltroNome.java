@@ -12,8 +12,8 @@ public class FiltroNome {
 		}
 
         public boolean doFiltro (FileAstratto){
-            if ()
-            return true;
+            if (file.getPath().toString().toLowerCase().contains(input.toLowerCase()))
+                return true;
             else return false;
         }
 

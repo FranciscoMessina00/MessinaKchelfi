@@ -12,8 +12,8 @@ public class FiltroEstensione {
 		}
 
         public boolean doFiltro (FileAstratto){
-            if ()
-            return true;
+            if (file.getEstensione().equalsIgnoreCase(input))
+                return true;
             else return false;
         }
 
