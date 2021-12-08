@@ -1,6 +1,6 @@
 package univpm.esame.ProgettoOOP.file;
 
-public abstract class File {
+public abstract class FileAstratto {
     //Nome del file
     protected String nome;
     //Estensione del file
@@ -15,7 +15,7 @@ public abstract class File {
     protected boolean condivisione;
 
     //Costruttore della classe "File" senza parametri
-	public File() {
+	public FileAstratto() {
 		this.nome=null;
 		this.estensione=null;
 		this.tipo=null;
@@ -25,7 +25,7 @@ public abstract class File {
 	}
 	
     //Costruttore della classe "File" con parametri
-	public File(String nome, String estensione, String tipo, int grandezza , String link, boolean condivisione) {
+	public FileAstratto(String nome, String estensione, String tipo, int grandezza , String link, boolean condivisione) {
 		this.nome = nome;
 		this.estensione = estensione;
 		this.tipo = tipo;

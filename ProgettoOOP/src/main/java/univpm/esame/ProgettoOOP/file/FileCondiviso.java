@@ -1,6 +1,6 @@
 package univpm.esame.ProgettoOOP.file;
 
-public class FileCondiviso extends File{
+public class FileCondiviso extends FileAstratto{
 	//Nel caso di file condiviso specifichiamo l'autore
 	private String autore;
 	//Costruttore della classe "File Condiviso" senza parametri

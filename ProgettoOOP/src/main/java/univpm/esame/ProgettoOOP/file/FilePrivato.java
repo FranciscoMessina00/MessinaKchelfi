@@ -1,6 +1,6 @@
 package univpm.esame.ProgettoOOP.file;
 
-public class FilePrivato extends File{
+public class FilePrivato extends FileAstratto{
 	//mancano i commenti qua aggiungere...
 	public FilePrivato() {
 		super();
