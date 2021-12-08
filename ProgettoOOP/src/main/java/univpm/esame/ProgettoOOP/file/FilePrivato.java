@@ -6,17 +6,17 @@ public class FilePrivato extends FileAstratto{
 		super();
 	}
 	
-	public FilePrivato(String nome, String estensione, String tipo, int grandezza , String link, boolean condivisione) {
-		super(nome, estensione, tipo, grandezza, link, condivisione);
+	public FilePrivato(String nome, String estensione, String tipo, long grandezza , String link) {
+		super(nome, estensione, tipo, grandezza, link, false);
 	}
 	
 	//Override toString
 	public String toString() {
 		return "Nome file: "+this.nome+"."+this.estensione+
-				"\nTipo: "+this.tipo+
-				"\nGrandezza: "+this.grandezza+" bytes"+
-				"\nPath: "+this.link+
-				"\nCondiviso: no";
+				"\r\nTipo: "+this.tipo+
+				"\r\nGrandezza: "+this.grandezza+" bytes"+
+				"\r\nPath: "+this.link+
+				"\r\nCondiviso: no";
 	}
 	
 }

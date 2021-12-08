@@ -25,7 +25,7 @@ public abstract class FileAstratto {
 	}
 	
     //Costruttore della classe "File" con parametri
-	public FileAstratto(String nome, String estensione, String tipo, int grandezza , String link, boolean condivisione) {
+	public FileAstratto(String nome, String estensione, String tipo, long grandezza , String link, boolean condivisione) {
 		this.nome = nome;
 		this.estensione = estensione;
 		this.tipo = tipo;
