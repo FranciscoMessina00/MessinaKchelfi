@@ -9,8 +9,8 @@ public class FileCondiviso extends FileAstratto{
 		this.autore=null;
 	}
 	//Costruttore della classe "File Condiviso" con i parametri
-	public FileCondiviso(String nome, String estensione, String tipo, long grandezza , String link, String autore) {
-		super(nome, estensione, tipo, grandezza, link, true);
+	public FileCondiviso(String nome, String estensione, String tipo, long grandezza , String path, String autore) {
+		super(nome, estensione, tipo, grandezza, path, true);
 		this.autore=autore;
 	}
 	
@@ -27,8 +27,8 @@ public class FileCondiviso extends FileAstratto{
 		return "Nome file: "+this.nome+"."+this.estensione+
 				"\nTipo: "+this.tipo+
 				"\nGrandezza: "+this.grandezza+" bytes"+
-				"\nPath: "+this.link+
-				"\nCondiviso: si"+
+				"\nPath: "+this.path+
+				"\nCondiviso: Si"+
 				"\nAutore: "+this.autore;
 	}
 	

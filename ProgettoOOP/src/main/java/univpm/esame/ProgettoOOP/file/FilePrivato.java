@@ -6,8 +6,8 @@ public class FilePrivato extends FileAstratto{
 		super();
 	}
 	
-	public FilePrivato(String nome, String estensione, String tipo, long grandezza , String link) {
-		super(nome, estensione, tipo, grandezza, link, false);
+	public FilePrivato(String nome, String estensione, String tipo, long grandezza , String path) {
+		super(nome, estensione, tipo, grandezza, path, false);
 	}
 	
 	//Override toString
@@ -15,8 +15,8 @@ public class FilePrivato extends FileAstratto{
 		return "Nome file: "+this.nome+"."+this.estensione+
 				"\r\nTipo: "+this.tipo+
 				"\r\nGrandezza: "+this.grandezza+" bytes"+
-				"\r\nPath: "+this.link+
-				"\r\nCondiviso: no";
+				"\r\nPath: "+this.path+
+				"\r\nCondiviso: No";
 	}
 	
 }

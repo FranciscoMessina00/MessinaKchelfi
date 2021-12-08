@@ -10,7 +10,7 @@ public abstract class FileAstratto {
     //Tipo del file
     protected String tipo;
     //Percorso del file all'interno di Dropbox
-    protected String link;
+    protected String path;
     //Boolean per indicare se il file è condiviso o non accessibile
     protected boolean condivisione;
 
@@ -20,17 +20,17 @@ public abstract class FileAstratto {
 		this.estensione=null;
 		this.tipo=null;
         this.grandezza = 0;
-		this.link=null;
+		this.path=null;
 		this.condivisione = false;
 	}
 	
     //Costruttore della classe "File" con parametri
-	public FileAstratto(String nome, String estensione, String tipo, long grandezza , String link, boolean condivisione) {
+	public FileAstratto(String nome, String estensione, String tipo, long grandezza , String path, boolean condivisione) {
 		this.nome = nome;
 		this.estensione = estensione;
 		this.tipo = tipo;
         this.grandezza = grandezza;
-		this.link = link;
+		this.path = path;
 		this.condivisione = condivisione;
 	}
 
@@ -58,11 +58,11 @@ public abstract class FileAstratto {
 	}
 
 
-	public String getLink() {
-		return link;
+	public String getPath() {
+		return path;
 	}
-	public void setLink(String link) {
-		this.link = link;
+	public void setPath(String path) {
+		this.path = path;
 	}
 
 
