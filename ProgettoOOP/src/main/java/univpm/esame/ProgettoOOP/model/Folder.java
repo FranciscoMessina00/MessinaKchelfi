@@ -7,20 +7,11 @@ public class Folder extends AbstractObject{
 	private String path;
 	
 	public Folder() {
-		this.id = null;
-		this.name=null;
-		this.path=null;
+		super();
 	}
 	
 	public Folder(String name, String path, String id) {
 		super(name, path,"Folder", id);
-	}
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	//Override toString
