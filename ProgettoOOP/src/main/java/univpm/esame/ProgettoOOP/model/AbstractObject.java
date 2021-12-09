@@ -11,6 +11,8 @@ public abstract class AbstractObject {
     protected String type;
     //Path of the object on Dropbox
     protected String path;
+	//Tag of the file
+	protected String tag;
     //Boolean to indicate if the object is shared or not
     protected boolean shared;
 
@@ -21,16 +23,18 @@ public abstract class AbstractObject {
 		this.type=null;
         this.size = 0;
 		this.path=null;
+		this.tag=null;
 		this.shared = false;
 	}
 	
     //Constructor of the Class with parameters
-	public AbstractObject(String name, String extension, String type, long size , String path, boolean shared) {
+	public AbstractObject(String name, String extension, String type, long size , String path, String tag, boolean shared) {
 		this.name = name;
 		this.extension = extension;
 		this.type = type;
         this.size = size;
 		this.path = path;
+		this.tag = tag;
 		this.shared = shared;
 	}
 
@@ -57,6 +61,12 @@ public abstract class AbstractObject {
 		this.type = type;
 	}
 
+	public long getSize() {
+		return size;
+	}
+    public void setSize(long size) {
+		this.size = size;
+	}
 
 	public String getPath() {
 		return path;
@@ -65,20 +75,18 @@ public abstract class AbstractObject {
 		this.path = path;
 	}
 
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
 
 	public boolean getShared() {
 		return shared;
 	}
 	public void setShared(boolean shared) {
 		this.shared = shared;
-	}
-
-
-	public long getSize() {
-		return size;
-	}
-    public void setSize(long size) {
-		this.size = size;
 	}
 	
     public abstract String toString();
