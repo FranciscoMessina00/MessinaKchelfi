@@ -1,16 +1,17 @@
 package univpm.esame.ProgettoOOP.model;
 
-public class SharedFile extends AbstractFile{
+public class File extends AbstractObject{
 	//Nel caso di file condiviso specifichiamo l'autore
 	private String author;
+	
 	//Costruttore della classe "File Condiviso" senza parametri
-	public SharedFile() {
+	public File() {
 		super();
 		this.author=null;
 	}
 	//Costruttore della classe "File Condiviso" con i parametri
-	public SharedFile(String name, String extension, String type, long size , String path, String author) {
-		super(name, extension, type, size, path, true);
+	public File(String name, String extension, String type, long size , String path, String author, boolean shared) {
+		super(name, extension, type, size, path, shared);
 		this.author=author;
 	}
 	

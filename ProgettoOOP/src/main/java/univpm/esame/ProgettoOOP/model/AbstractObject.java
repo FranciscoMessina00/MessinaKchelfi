@@ -1,21 +1,21 @@
 package univpm.esame.ProgettoOOP.model;
 
-public abstract class AbstractFile {
-    //Nome del file
+public abstract class AbstractObject {
+    //Name of the object
     protected String name;
-    //Estensione del file
+    //Extension of the object
     protected String extension;
-    //Grandezza del file
+    //Size of the object
     protected long size;
-    //Tipo del file
+    //Type of the object
     protected String type;
-    //Percorso del file all'interno di Dropbox
+    //Path of the object on Dropbox
     protected String path;
-    //Boolean per indicare se il file è condiviso o non accessibile
+    //Boolean to indicate if the object is shared or not
     protected boolean shared;
 
-    //Costruttore della classe "File" senza parametri
-	public AbstractFile() {
+    //Constructor of the Class without parameters
+	public AbstractObject() {
 		this.name=null;
 		this.extension=null;
 		this.type=null;
@@ -24,8 +24,8 @@ public abstract class AbstractFile {
 		this.shared = false;
 	}
 	
-    //Costruttore della classe "File" con parametri
-	public AbstractFile(String name, String extension, String type, long size , String path, boolean shared) {
+    //Constructor of the Class with parameters
+	public AbstractObject(String name, String extension, String type, long size , String path, boolean shared) {
 		this.name = name;
 		this.extension = extension;
 		this.type = type;
