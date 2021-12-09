@@ -1,19 +1,21 @@
 package univpm.esame.ProgettoOOP.model;
 
-public class Folder {
-	private String name;
-	private String path;
+public class Folder extends AbstractObject{
+
 	private String id;
+	
 	public Folder() {
-		this.name = null;
-		this.path = null;
 		this.id = null;
 	}
+
+	
 	public Folder(String name, String path, String id) {
 		this.name = name;
 		this.path = path;
 		this.id = id;
 	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -33,5 +35,11 @@ public class Folder {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+
+
+	@Override
+	public String toString() {
+		return null;
 	}
 }

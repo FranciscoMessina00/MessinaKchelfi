@@ -10,8 +10,8 @@ public class File extends AbstractObject{
 		this.author=null;
 	}
 	//Costruttore della classe "File Condiviso" con i parametri
-	public File(String name, String extension, String type, long size , String path, String author, boolean shared) {
-		super(name, extension, type, size, path, shared);
+	public File(String name, String extension, String type, long size , String path, String tag, String author, boolean shared) {
+		super(name, extension, type, size, path, tag, shared);
 		this.author=author;
 	}
 	
@@ -29,7 +29,8 @@ public class File extends AbstractObject{
 				"\nType: "+this.type+
 				"\nSize: "+this.size+" bytes"+
 				"\nPath: "+this.path+
-				"\nShared: Yes"+
+				"\nTag: "+this.tag+
+				"\nShared: "+shared+
 				"\nAuthor: "+this.author;
 	}
 	
