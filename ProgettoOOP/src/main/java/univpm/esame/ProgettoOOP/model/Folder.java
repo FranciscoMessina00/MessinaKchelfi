@@ -3,13 +3,17 @@ package univpm.esame.ProgettoOOP.model;
 public class Folder extends AbstractObject{
 
 	private String id;
+	private String name;
+	private String path;
 	
 	public Folder() {
 		this.id = null;
+		this.name=null;
+		this.path=null;
 	}
 	
-	public Folder(String id) {
-		this.id = id;
+	public Folder(String name, String path, String id) {
+		super(name, path,"Folder", id);
 	}
 	
 	public String getId() {
@@ -22,11 +26,8 @@ public class Folder extends AbstractObject{
 	//Override toString
 	public String toString() {
 		return "Folder Name: "+this.name+
-				"\nSize: "+this.size+" bytes"+
 				"\nPath: "+this.path+
 				"\nTag: "+this.tag+
-				"\nShared: "+shared+
-				"\nId: "+this.id+
-				"\nAuthor: "+this.author;
+				"\nId: "+this.id;
 	}
 }
