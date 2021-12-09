@@ -7,13 +7,13 @@ import univpm.esame.ProgettoOOP.model.*;
 
 @RestController
 public class Controller {
-	//public FileAstratto file= new FilePrivato("ciccia","txt","testo",500000L,"/cartella1");
+	//public Abstract file= new PrivateFile("ciccia","txt","testo",500000L,"/cartella1");
 	@GetMapping("/files")
-	public String vediFile() {
+	public String seeFile() {
 		return ; //ritorna tutti i file
 	}
 	@GetMapping("/files/nome")
-	public String vediFileSpecifico() {
+	public String seeSpecificFile() {
 		return ; //ritorna le caratteristiche del file
 	}
 	
