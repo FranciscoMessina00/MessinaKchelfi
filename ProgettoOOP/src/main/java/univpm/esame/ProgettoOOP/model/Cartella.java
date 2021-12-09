@@ -1,4 +1,4 @@
-package univpm.esame.ProgettoOOP.file;
+package univpm.esame.ProgettoOOP.model;
 
 public class Cartella {
 	private String nome;
