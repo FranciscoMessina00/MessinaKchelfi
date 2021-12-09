@@ -7,27 +7,9 @@ public class Folder extends AbstractObject{
 	public Folder() {
 		this.id = null;
 	}
-
 	
-	public Folder(String name, String path, String id) {
-		this.name = name;
-		this.path = path;
+	public Folder(String id) {
 		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getPath() {
-		return path;
-	}
-	public void setPath(String path) {
-		this.path = path;
 	}
 	
 	public String getId() {
@@ -37,9 +19,14 @@ public class Folder extends AbstractObject{
 		this.id = id;
 	}
 
-
-	@Override
+	//Override toString
 	public String toString() {
-		return null;
+		return "Folder Name: "+this.name+
+				"\nSize: "+this.size+" bytes"+
+				"\nPath: "+this.path+
+				"\nTag: "+this.tag+
+				"\nShared: "+shared+
+				"\nId: "+this.id+
+				"\nAuthor: "+this.author;
 	}
 }
