@@ -1,24 +1,24 @@
-package univpm.esame.ProgettoOOP.file;
+package univpm.esame.ProgettoOOP.model;
 
-public class Cartella {
-	private String nome;
+public class Folder {
+	private String name;
 	private String path;
 	private String id;
-	public Cartella() {
-		this.nome = null;
+	public Folder() {
+		this.name = null;
 		this.path = null;
 		this.id = null;
 	}
-	public Cartella(String nome, String path, String id) {
-		this.nome = nome;
+	public Folder(String name, String path, String id) {
+		this.name = name;
 		this.path = path;
 		this.id = id;
 	}
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	public String getPath() {

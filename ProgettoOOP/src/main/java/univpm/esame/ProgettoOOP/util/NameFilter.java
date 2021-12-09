@@ -1,17 +1,17 @@
 package univpm.esame.ProgettoOOP.util;
 
-import univpm.esame.ProgettoOOP.file.FileAstratto;
+import univpm.esame.ProgettoOOP.model.AbstractFile;
 
-public class FiltroNome {
+public class NameFilter {
     private String input;
 
-    public FiltroNome (Object input) throws **{
+    public NameFilter (Object input) throws **{
 		if (input instanceof String) 
 			this.input = (String) input;
 		else throw new **("L'input deve essere una parola");
 		}
 
-        public boolean doFiltro (FileAstratto){
+        public boolean doFilter (AbstractFile){
             if (file.getPath().toLowerCase().contains(input.toLowerCase()))
                 return true;
             else return false;
