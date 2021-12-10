@@ -1,10 +1,6 @@
 package univpm.esame.ProgettoOOP.model;
 
 public class Folder extends AbstractObject{
-
-	private String id;
-	private String name;
-	private String path;
 	
 	public Folder() {
 		super();
@@ -14,11 +10,11 @@ public class Folder extends AbstractObject{
 		super(name, path,"Folder", id);
 	}
 
-	//Override toString
+	@Override
 	public String toString() {
-		return "Folder Name: "+this.name+
+		return 	"\nFolder Name: "+this.name+
 				"\nPath: "+this.path+
 				"\nTag: "+this.tag+
-				"\nId: "+this.id;
+				"\nId: "+this.id+"\n";
 	}
 }
