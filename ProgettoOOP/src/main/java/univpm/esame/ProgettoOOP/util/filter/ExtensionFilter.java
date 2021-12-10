@@ -1,4 +1,4 @@
-package univpm.esame.ProgettoOOP.util;
+package univpm.esame.ProgettoOOP.util.filter;
 
 import univpm.esame.ProgettoOOP.model.*;
 
