@@ -1,13 +1,15 @@
 package univpm.esame.ProgettoOOP.util.filter;
-import univpm.esame.ProgettoOOP.model.File;
 
-public class ExtensionFilter {
+import univpm.esame.ProgettoOOP.model.File;
+import univpm.esame.ProgettoOOP.util.filter_main.Filter;
+
+public class ExtensionFilter extends Filter{
     private String input;
 
     public ExtensionFilter (Object input){
 		if (input instanceof String) 
 			this.input = (String) input;
-		else throw new Exception("L'input deve essere una parola");
+		else throw new Exception("Error");
 		}
 
        public boolean doFiltro (File file){
