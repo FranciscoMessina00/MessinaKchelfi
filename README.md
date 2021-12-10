@@ -13,9 +13,9 @@ STATS E FILTRI:
 Statistiche sui risultati della ricerca; filtri per data di modifica e accesso.
 Esempi di Stats e Filtri sono disponibile al seguente indirizzo: https://learn.univpm.it/mod/page/view.php?id=260184 
 
-chiamata a list_folder
+Chiamata a list_folder
 https://api.dropboxapi.com/2/files/list_folder
-input:
+Input:
 	
 	{
 	    "path": "/Homework/math",
@@ -27,7 +27,7 @@ input:
 	    "include_non_downloadable_files": true
 	}
 
-Esempio output:
+Esempio Output:
 	
 	{
     	"entries": [
@@ -99,15 +99,15 @@ Esempio output:
     	"has_more": false
 	}
   
-chiamata a get_temporary_link
+Chiamata a get_temporary_link
 https://api.dropboxapi.com/2/files/get_temporary_link
-input:
+Input:
 	
 	{
 	    "path": "/video.mp4"
 	}
 
-Esempio output:
+Esempio Output:
   	
 	{
     	"metadata":
@@ -126,10 +126,10 @@ Esempio output:
     	"link": "https://ucd027c1c8c14a9f4fbdea146068.dl.dropboxusercontent.com/cd/0/get/Bbl7XX8sF7JTEXwzehCpQJk47JMVd7mmMyPhTTYHHcp7epiDL0zvsF5SAGrddtrVL8U4c0mVgCPulj6GtOWu73Tf-O6FL-VLUOgcOVx0vxusDu8MCN2nUWCR83KNLF25Y9MZCpkC9g3OLKPcuC8T5hHp/file"
 	}
   
-chiamata a list_revisions
+Chiamata a list_revisions
 https://api.dropboxapi.com/2/files/list_revisions
 
-input:
+Input:
 
 	{
 		"path": "/root/word.docx",
@@ -137,7 +137,7 @@ input:
 		"limit": 10
   	}
 
-Esempio output:
+Esempio Output:
 	
 	{
 		"is_deleted": false,
