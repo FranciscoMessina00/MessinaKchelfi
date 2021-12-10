@@ -6,7 +6,7 @@ import org.json.simple.JSONObject;
 
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 
-public interface AllServices {
+public interface AllConverters {
 	//with API list_folder we get in return a JSON array
 	public JSONArray APIToJSONArray();
 	//with API get_temporary_link we get in return a JSON object
