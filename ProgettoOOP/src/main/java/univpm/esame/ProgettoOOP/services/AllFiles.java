@@ -1,11 +1,8 @@
 package univpm.esame.ProgettoOOP.services;
 
-import java.util.ArrayList;
-
 import org.json.simple.JSONObject;
 
 import univpm.esame.ProgettoOOP.converters.Converter;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
 
 public class AllFiles {
 	
