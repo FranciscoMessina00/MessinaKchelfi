@@ -6,7 +6,7 @@ import univpm.esame.ProgettoOOP.util.filter_main.Filter;
 public class ExtensionFilter extends Filter{
     private String input;
 
-    public ExtensionFilter (Object input){
+    public ExtensionFilter (Object input) throws Exception{
 		if (input instanceof String) 
 			this.input = (String) input;
 		else throw new Exception("Error");
@@ -17,5 +17,5 @@ public class ExtensionFilter extends Filter{
                return true;
            else return false;       
         }
-    }
+    
 }

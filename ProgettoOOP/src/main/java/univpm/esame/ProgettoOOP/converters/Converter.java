@@ -66,12 +66,18 @@ public class Converter{
 	
 	public static ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception {
 		ArrayList<AbstractObject> allFiles=new ArrayList<AbstractObject>();
+		String[] splitName;
 		JSONArray obj2 = (JSONArray) obj.get("entries");
 		JSONObject obj3= new JSONObject();
 		for (int i=0; i<obj2.size();i++) {
 			obj3=(JSONObject) obj2.get(i);
 			if (obj3.get(".tag").equals("file")) {
-				AbstractObject file=new File((String)obj3.get("name"), (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));
+				splitName = (String[])((String) obj3.get("name")).split("\\.");
+				if (splitName.length != 2) {
+				     throw new IllegalArgumentException("String not in correct format");
+				}
+				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));
+//				AbstractObject file=new File((String)obj3.get("name"), "txt", (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));				
 				allFiles.add(file);
 			} else if (obj3.get(".tag").equals("folder")) {
 				AbstractObject folder=new Folder((String)obj3.get("name"),(String)obj3.get("path_lower"),(String)obj3.get("id"));
