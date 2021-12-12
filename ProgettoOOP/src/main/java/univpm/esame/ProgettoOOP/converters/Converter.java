@@ -13,14 +13,15 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
+import org.springframework.stereotype.Service;
 
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
+@Service
+public class Converter implements AllConverters{
 
-public class Converter{
-
-	public static JSONObject APIToJSONObject(String url, String jsonBody) {
+	public JSONObject APIToJSONObject(String url, String jsonBody) {
 		JSONObject obj=null;
 		
 		try {
@@ -64,7 +65,7 @@ public class Converter{
 	}
 
 	
-	public static ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception {
+	public ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception {
 		ArrayList<AbstractObject> allFiles=new ArrayList<AbstractObject>();
 		String[] splitName;
 		JSONArray obj2 = (JSONArray) obj.get("entries");
@@ -88,15 +89,16 @@ public class Converter{
 	}
 
 	
-	public static AbstractObject JSONToObject() {
+	public AbstractObject JSONToObject() {
 		
 		return null;
 	}
 
 	
-	public static String JSONObjectToURLDownload() {
+	public String JSONObjectToURLDownload() {
 		
 		return null;
 	}
+
 
 }
