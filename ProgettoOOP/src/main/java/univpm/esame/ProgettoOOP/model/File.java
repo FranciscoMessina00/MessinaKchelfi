@@ -1,10 +1,14 @@
 package univpm.esame.ProgettoOOP.model;
 
+import java.net.URL;
+import univpm.esame.ProgettoOOP.converters.*;
+
 public class File extends AbstractObject{
 	private String extension;
 	private long size;
 	private boolean shared;
 	private String version;
+	private String url;
 
 	//Costruttore della classe "File" senza parametri
 	public File() {
@@ -13,15 +17,19 @@ public class File extends AbstractObject{
 		this.size=0;
 		this.shared=false;
 		this.version=null;
+		this.url=null;
 	}
 
 	//Costruttore della classe "File" con i parametri
 	public File(String name, String extension, long size , String path, String id, boolean shared, String version) {
 		super(name, path, "File", id);
+		Converter converter= new Converter();
+		this.url=((String)converter.APIToJSONObject("https://api.dropboxapi.com/2/files/get_temporary_link", "{\r\n    \"path\": \""+this.path+"\"\r\n}").get("link"));
 		this.extension=extension;
 		this.size=size;
 		this.shared=shared;
 		this.version=version;
+		
 	}
 
 	public String getExtension() {
@@ -56,6 +64,14 @@ public class File extends AbstractObject{
 		this.version = version;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	@Override
 	public String toString() {
 		return 	"\nFile Name: "+this.name+"."+this.extension+
@@ -64,7 +80,8 @@ public class File extends AbstractObject{
 				"\nPath: "+this.path+
 				"\nTag: "+this.tag+
 				"\nShared: "+shared+
-				"\nVersion: "+this.version+"\n";
+				"\nVersion: "+this.version+
+				"\nDownload file: "+this.url+"\n";
 	}
 	
 }

@@ -88,17 +88,6 @@ public class Converter implements AllConverters{
 		return allFiles;
 	}
 
-	
-	public AbstractObject JSONToObject() {
-		
-		return null;
-	}
-
-	
-	public String JSONObjectToURLDownload() {
-		
-		return null;
-	}
 
 
 }

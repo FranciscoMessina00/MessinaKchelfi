@@ -11,8 +11,4 @@ public interface AllConverters {
 	public JSONObject APIToJSONObject(String url, String jsonBody);
 	//This method transforms the JSONArray to a ArrayList<AbstractObject>
 	public ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception;
-	//This method transforms a JSONObject to a AbstractObject;
-	public AbstractObject JSONToObject();
-	//This method transforms the JSONObject to a String that represents the downloadable link of a File
-	public String JSONObjectToURLDownload();
 }
