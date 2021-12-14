@@ -71,7 +71,10 @@ public class File extends AbstractObject{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
+	
+	public String fullName() {
+		return this.name+"."+this.extension;
+	}
 	@Override
 	public String toString() {
 		return 	"\nFile Name: "+this.name+"."+this.extension+
