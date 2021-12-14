@@ -2,8 +2,12 @@ package univpm.esame.ProgettoOOP.controller;
 
 import java.util.ArrayList;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import univpm.esame.ProgettoOOP.converters.AllConverters;
@@ -22,9 +26,28 @@ public class Controller {
 		
 		return allFiles.getAllFiles(); //ritorna tutti i file
 	}
-//	@GetMapping("/files/nome")
-//	public String seeSpecificFile() {
-//		return ; //ritorna le caratteristiche del file
-//	}
 	
+	@PostMapping("/files")
+	public String seeFileFiltered(
+			@RequestParam(name="name", required = false) String name,
+			@RequestParam(name="extension", required = false) String extension)
+			throws Exception {
+		if (name==null && extension==null) {
+			return allFiles.getAllFiles();
+		}else return name+" "+extension;
+	}
+	
+//	@GetMapping("/stats")
+//	public String seeStats() {
+//		
+//		return stats;
+//	}
+//	
+//	@PostMapping("/stats")
+//	public String statsFilter(@RequestBody(required = false) JSONObject filter) throws Exception {
+//		if (filter==null) {
+//			return stats;
+//		}else return stats.doFilter(filter);
+//		
+//	}
 }
