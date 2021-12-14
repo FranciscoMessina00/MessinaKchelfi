@@ -1,6 +1,8 @@
 package univpm.esame.ProgettoOOP.model;
 
 import java.net.URL;
+import java.util.ArrayList;
+
 import univpm.esame.ProgettoOOP.converters.*;
 
 public class File extends AbstractObject{
@@ -86,5 +88,9 @@ public class File extends AbstractObject{
 				"\nVersion: "+this.version+
 				"\nDownload file: "+this.url+"\n";
 	}
+
+    public static ArrayList<AbstractObject> getFile() {
+        return null;
+    }
 	
 }
