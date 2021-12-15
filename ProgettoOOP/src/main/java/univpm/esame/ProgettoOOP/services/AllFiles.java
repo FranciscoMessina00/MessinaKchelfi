@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import univpm.esame.ProgettoOOP.converters.Converter;
+import univpm.esame.ProgettoOOP.exception.FileNotFound;
 import univpm.esame.ProgettoOOP.model.*;
 @Service
 public class AllFiles {
@@ -72,7 +73,7 @@ public class AllFiles {
 				}
 			}
 			if (allFiles.isEmpty()) {
-				return "File not found";
+				throw new FileNotFound("File not found");
 			}else return allFiles.toString();
 		}
 	}
