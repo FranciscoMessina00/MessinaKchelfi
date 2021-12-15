@@ -13,7 +13,6 @@ import univpm.esame.ProgettoOOP.model.*;
 public class AllFiles {
 	@Autowired
 	Converter converter;
-	NameAndExtensionFilter nameAndExtensionFilter;
 	public String getFiles(String fullName) throws Exception{
 		String url="https://api.dropboxapi.com/2/files/list_folder";
 		String jsonBody="{\r\n" + "    \"path\": \"\",\r\n" + "    \"recursive\": true,\r\n"
@@ -48,13 +47,13 @@ public class AllFiles {
 
 		if (name.equals("*")) {
 			//filter by extension
-			allFiles=nameAndExtensionFilter.filterByExtension(allFiles,extension);
+			allFiles=NameAndExtensionFilter.filterByExtension(allFiles,extension);
 		}else if(extension.equals("*")) {
 			//filter by name
-			allFiles=nameAndExtensionFilter.filterByName(allFiles,name);
+			allFiles=NameAndExtensionFilter.filterByName(allFiles,name);
 		}else {
 			//filter both
-			allFiles=nameAndExtensionFilter.filterBoth(allFiles,fullName);
+			allFiles=NameAndExtensionFilter.filterBoth(allFiles,fullName);
 		}
 		if (allFiles.isEmpty()) {
 			throw new FileNotFound("File not found");

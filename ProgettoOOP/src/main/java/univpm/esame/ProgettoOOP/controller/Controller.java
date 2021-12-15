@@ -29,9 +29,11 @@ public class Controller {
 	
 	@PostMapping("/files")
 	public String seeFileFiltered(
-			@RequestParam(name="name", required = true) String fullName)
+			@RequestParam(name="fullName", required = false) String fullName,
+			@RequestBody(required=false) JSONObject dateFilter)
 			throws Exception {
-		return allFiles.getFiles(fullName);
+		
+		return allFiles.getFiles(fullName)+dateFilter;
 	}
 	
 //	@GetMapping("/stats")
