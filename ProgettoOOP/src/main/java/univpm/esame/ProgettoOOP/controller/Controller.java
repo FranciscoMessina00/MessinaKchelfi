@@ -24,14 +24,14 @@ public class Controller {
 	@GetMapping("/files")
 	public String seeFile() throws Exception {
 		
-		return allFiles.getAllFiles(null); //ritorna tutti i file
+		return allFiles.getFiles(null); //ritorna tutti i file
 	}
 	
 	@PostMapping("/files")
 	public String seeFileFiltered(
 			@RequestParam(name="name", required = true) String fullName)
 			throws Exception {
-		return allFiles.getAllFiles(fullName);
+		return allFiles.getFiles(fullName);
 	}
 	
 //	@GetMapping("/stats")
