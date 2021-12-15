@@ -80,4 +80,7 @@ public class AllFiles {
 			throw new FileNotFound("File not found");
 		}else return allFilesFiltered.toString();
 	}
+    public static ArrayList<AbstractObject> getAllFiles() {
+        return null;
+    }
 }

@@ -1,9 +1,9 @@
 package univpm.esame.ProgettoOOP.util.filter_main;
 
-import univpm.esame.ProgettoOOP.model.File;
+import univpm.esame.ProgettoOOP.model.AbstractObject;
 
 public class Filter {
-    public boolean doFilter (File file) throws Exception {
+    public boolean doFilter (AbstractObject file) throws Exception {
 		throw new Exception("Error");
 	}
 }
