@@ -21,7 +21,7 @@ public class FilterController {
 		String operator="";
 		boolean flag=false;
 
-		return ;
+		return null;
 	}
 }	
 

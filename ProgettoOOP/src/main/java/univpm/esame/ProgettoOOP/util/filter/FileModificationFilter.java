@@ -13,7 +13,7 @@ public class FileModificationFilter extends Filter{
 		}
 
        public boolean doFiltro (File file){
-           if ((input))     //Aggiungere Tag di ultima modifica
+           if (/*(input)*/ false)     //Aggiungere Tag di ultima modifica
                return true;
            else return false;       
         }

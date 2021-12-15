@@ -4,7 +4,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import univpm.esame.ProgettoOOP.converters.*;
-
+/**
+ * File class that extends the abstract class AbstractObject
+ * @author Francisco Messina
+ *
+ */
 public class File extends AbstractObject{
 	private String extension;
 	private long size;
