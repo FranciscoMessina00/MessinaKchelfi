@@ -9,10 +9,21 @@ import univpm.esame.ProgettoOOP.util.filter.NameAndExtensionFilter;
 import univpm.esame.ProgettoOOP.converters.Converter;
 import univpm.esame.ProgettoOOP.exception.FileNotFound;
 import univpm.esame.ProgettoOOP.model.*;
+/**
+ * The class calls the Dropbox API /list_folder and can either return all or some files
+ * @author Francisco Messina
+ * @author Amine Kchelfi
+ */
 @Service
 public class AllFiles {
 	@Autowired
 	Converter converter;
+	/**
+	 * 
+	 * @param fullName file's name + extension
+	 * @return allFiles
+	 * @throws Exception exception
+	 */
 	public String getFiles(String fullName) throws Exception{
 		String url="https://api.dropboxapi.com/2/files/list_folder";
 		String jsonBody="{\r\n" + "    \"path\": \"\",\r\n" + "    \"recursive\": true,\r\n"
@@ -29,12 +40,22 @@ public class AllFiles {
 			return getFilteredFiles(allFiles, fullName);
 		}
 	}
-	
-	public String getAllFiles(ArrayList<AbstractObject> allFiles) {
-		return allFiles.toString();
+	/**
+	 * Returns all files un-filtered
+	 * @param allFilesNotFiltered all files
+	 * @return allFilesNotFiltered
+	 */
+	public String getAllFiles(ArrayList<AbstractObject> allFilesNotFiltered) {
+		return allFilesNotFiltered.toString();
 	}
-	
-	public String getFilteredFiles(ArrayList<AbstractObject> allFiles, String fullName) throws FileNotFound {
+	/**
+	 * The method filters allFiles either by their extension or name
+	 * @param allFilesFiltered Arraylist of all Dropbox files
+	 * @param fullName file's name + extension
+	 * @return allFilesFiltered
+	 * @throws FileNotFound exception for file not found
+	 */
+	public String getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFound {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;
@@ -46,17 +67,17 @@ public class AllFiles {
 		}
 
 		if (name.equals("*")) {
-			//filter by extension
-			allFiles=NameAndExtensionFilter.filterByExtension(allFiles,extension);
+			
+			allFilesFiltered=NameAndExtensionFilter.filterByExtension(allFilesFiltered,extension);
 		}else if(extension.equals("*")) {
-			//filter by name
-			allFiles=NameAndExtensionFilter.filterByName(allFiles,name);
+			
+			allFilesFiltered=NameAndExtensionFilter.filterByName(allFilesFiltered,name);
 		}else {
-			//filter both
-			allFiles=NameAndExtensionFilter.filterBoth(allFiles,fullName);
+			
+			allFilesFiltered=NameAndExtensionFilter.filterBoth(allFilesFiltered,fullName);
 		}
-		if (allFiles.isEmpty()) {
+		if (allFilesFiltered.isEmpty()) {
 			throw new FileNotFound("File not found");
-		}else return allFiles.toString();
+		}else return allFilesFiltered.toString();
 	}
 }

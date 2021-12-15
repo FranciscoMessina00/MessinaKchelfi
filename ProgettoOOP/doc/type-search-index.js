@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"univpm.esame.ProgettoOOP.model","l":"File"}];updateSearchResults();
+typeSearchIndex = [{"p":"univpm.esame.ProgettoOOP.model","l":"AbstractObject"},{"l":"All Classes","u":"allclasses-index.html"},{"p":"univpm.esame.ProgettoOOP.services","l":"AllFiles"},{"p":"univpm.esame.ProgettoOOP.model","l":"File"},{"p":"univpm.esame.ProgettoOOP.model","l":"Folder"},{"p":"univpm.esame.ProgettoOOP.util.filter","l":"NameAndExtensionFilter"}];updateSearchResults();

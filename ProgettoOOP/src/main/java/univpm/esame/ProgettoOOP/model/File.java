@@ -1,13 +1,12 @@
 package univpm.esame.ProgettoOOP.model;
 
-import java.net.URL;
 import java.util.ArrayList;
 
 import univpm.esame.ProgettoOOP.converters.*;
 /**
  * File class that extends the abstract class AbstractObject
  * @author Francisco Messina
- *
+ * @author Amine Kchelfi
  */
 public class File extends AbstractObject{
 	private String extension;
@@ -17,7 +16,7 @@ public class File extends AbstractObject{
 	private String url;
 
 	/**
-	 * Costruttore della classe "File" senza parametri
+	 * Constructor of the class "File" without parameters
 	 */
 	public File() {
 		super();
@@ -29,7 +28,7 @@ public class File extends AbstractObject{
 	}
 
 	/**
-	 * Costruttore della classe "File" con i parametri
+	 * Constructor of the class "File" with parameters
 	 * @param name String name of file
 	 * @param extension	String extension of file
 	 * @param size Long size of file in bytes
@@ -49,29 +48,29 @@ public class File extends AbstractObject{
 		
 	}
 	/**
-	 * Returns the extension of the file
+	 * Returns the file's extension
 	 * @return extension
 	 */
 	public String getExtension() {
 		return extension;
 	}
 	/**
-	 * Sets the extension of the file
-	 * @return void
+	 * Sets the file's extension
+	 * @param extension file's extension
 	 */
 	public void setExtension(String extension) {
 		this.extension = extension;
 	}
 	/**
-	 * Returns the size of the file
+	 * Returns the file size
 	 * @return size
 	 */
 	public long getSize() {
 		return size;
 	}
 	/**
-	 * Sets the size of the file
-	 * @return void
+	 * Sets the file size
+	 * @param size the file size
 	 */
 	public void setSize(long size) {
 		this.size = size;
@@ -85,42 +84,42 @@ public class File extends AbstractObject{
 	}
 	/**
 	 * Sets if the file is shared
-	 * @return void
+	 * @param shared if the file is shared
 	 */
 	public void setShared(boolean shared) {
 		this.shared = shared;
 	}
 	/**
-	 * Returns the version of the file
-	 * @return extension
+	 * Returns the file version
+	 * @return version
 	 */
 	public String getVersion() {
 		return version;
 	}
 	/**
-	 * Sets the version of the file
-	 * @return void
+	 * Sets the file's version
+	 * @param version the file's version
 	 */
 	public void setVersion(String version) {
 		this.version = version;
 	}
 	/**
-	 * Returns the downloadable URL of the file
-	 * @return extension
+	 * Returns the downloadable URL
+	 * @return url
 	 */
 	public String getUrl() {
 		return url;
 	}
 	/**
-	 * Sets the downloadable URL of the file
-	 * @return void
+	 * Sets the downloadable URL
+	 * @param url the downloadable URL
 	 */
 	public void setUrl(String url) {
 		this.url = url;
 	}
 	/**
-	 * Returns the full name of the file with etension
-	 * @return name + extension
+	 * Returns the file's full name with etension
+	 * @return name+extension
 	 */
 	public String fullName() {
 		return this.name+"."+this.extension;
@@ -136,7 +135,10 @@ public class File extends AbstractObject{
 				"\nVersion: "+this.version+
 				"\nDownload file: "+this.url+"\n";
 	}
-
+	/**
+	 * Still to define
+	 * @return null
+	 */
     public static ArrayList<AbstractObject> getFile() {
         return null;
     }
