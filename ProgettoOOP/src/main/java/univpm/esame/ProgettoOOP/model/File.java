@@ -145,7 +145,7 @@ public class File extends AbstractObject{
 				"\nTag: "+this.tag+
 				"\nShared: "+shared+
 				"\nVersion: "+this.version+
-				"\nDownload file: "+this.url+"\n";
+				"\nDownload file: "+this.url+
 				"\nModification date: "+this.modification_date+"\n";
 	}
 	/**

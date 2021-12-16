@@ -77,7 +77,7 @@ public class Converter implements AllConverters{
 				if (splitName.length != 2) {
 				     throw new IllegalArgumentException("String not in correct format");
 				}
-				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));
+				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), (String)obj3.get("server_modified"));
 //				AbstractObject file=new File((String)obj3.get("name"), "txt", (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));				
 				allFiles.add(file);
 			} else if (obj3.get(".tag").equals("folder")) {
