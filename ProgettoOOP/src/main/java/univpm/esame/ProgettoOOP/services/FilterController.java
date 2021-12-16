@@ -45,21 +45,21 @@ public class FilterController {
 		if (array.isEmpty()) 
 			throw new Exception("The filter can't be empty");
 			
-	}	
+		
 
 	private static Filter filterIdentification(String filterParameter, Object filterValue)
 	throws Exception{
 		Filter filter = new Filter();
 		
-		if(filterParameter.equals("name")) {
+		if(filterParameter.equals("file_modification")) {
+			filter = new FileModificationFilter(filterValue);
+		}	filterParameter.equals("name")) {
 			filter = new NameFilter(filterValue);
 		}
 		else if (filterParameter.equals("esxtension")) {
 			filter = new ExtensionFilter(filterValue);
 		}
-		else if (filterParameter.equals("file_modification")) {
-			filter = new FileModificationFilter(filterValue);
-		}	
+		else if (
 		else if (filterParameter.equals("jolly")) {
 			filter = new NameAndExtensionFilter(filterValue);
 		}		

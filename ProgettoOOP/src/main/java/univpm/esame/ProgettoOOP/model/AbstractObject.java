@@ -21,6 +21,8 @@ public abstract class AbstractObject {
 	 * Every folder or file has a id given by Dropbox
 	 */
 	protected String id;
+	
+	protected String modification_date;
 
     /**
      * Constructor of the Class without parameters
@@ -30,6 +32,7 @@ public abstract class AbstractObject {
 		this.path=null;
 		this.tag=null;
 		this.id=null;
+		this.modification_date=null;
 	}
 	
     
@@ -40,11 +43,12 @@ public abstract class AbstractObject {
 	 * @param tag Defines the type of "object" es. "File" or "Folder"
 	 * @param id Identifier of the object
 	 */
-	public AbstractObject(String name, String path, String tag, String id) {
+	public AbstractObject(String name, String path, String tag, String id, String modification_date) {
 		this.name = name;
 		this.path = path;
 		this.tag = tag;
 		this.id=id;
+		this.modification_date = modification_date;
 	}
 	/**
 	 * Returns the object's ID
@@ -101,6 +105,13 @@ public abstract class AbstractObject {
 	 */
 	public void setTag(String tag) {
 		this.tag = tag;
+	}
+
+	public String getModification_Date (){
+		return modification_date;
+	}
+	public void setModification_Date (String modification_date){
+		this.modification_date = modification_date;
 	}
 
     public abstract String toString();
