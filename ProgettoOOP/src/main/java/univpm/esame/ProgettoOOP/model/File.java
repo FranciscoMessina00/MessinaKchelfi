@@ -14,6 +14,7 @@ public class File extends AbstractObject{
 	private boolean shared;
 	private String version;
 	private String url;
+	private String modification_date;
 
 	/**
 	 * Constructor of the class "File" without parameters
@@ -25,6 +26,7 @@ public class File extends AbstractObject{
 		this.shared=false;
 		this.version=null;
 		this.url=null;
+		this.modification_date=null;
 	}
 
 	/**
@@ -37,7 +39,7 @@ public class File extends AbstractObject{
 	 * @param shared Boolean states if the file is shared
 	 * @param version String is a code that identifies the version of the file
 	 */
-	public File(String name, String extension, long size , String path, String id, boolean shared, String version) {
+	public File(String name, String extension, long size , String path, String id, boolean shared, String version, String modification_date) {
 		super(name, path, "File", id);
 		Converter converter= new Converter();
 		this.url=((String)converter.APIToJSONObject("https://api.dropboxapi.com/2/files/get_temporary_link", "{\r\n    \"path\": \""+this.path+"\"\r\n}").get("link"));
@@ -45,6 +47,7 @@ public class File extends AbstractObject{
 		this.size=size;
 		this.shared=shared;
 		this.version=version;
+		this.modification_date=modification_date;
 		
 	}
 	/**
@@ -117,6 +120,15 @@ public class File extends AbstractObject{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+
+	public String getModification_Date() {
+		return modification_date;
+	}
+
+	public void setModification_Date(String modification_date) {
+		this.modification_date = modification_date;
+	}
+
 	/**
 	 * Returns the file's full name with etension
 	 * @return name+extension
@@ -134,6 +146,7 @@ public class File extends AbstractObject{
 				"\nShared: "+shared+
 				"\nVersion: "+this.version+
 				"\nDownload file: "+this.url+"\n";
+				"\nModification date: "+this.modification_date+"\n";
 	}
 	/**
 	 * Still to define
