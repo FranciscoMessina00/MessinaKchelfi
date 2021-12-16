@@ -9,8 +9,6 @@ import univpm.esame.ProgettoOOP.model.*;
  * @author Amine Kchelfi
  */
 public class NameAndExtensionFilter {
-	public NameAndExtensionFilter(Object filterValue) {
-	}
 	/**
 	 * Filters all files with certain extension e.g. "*.txt"
 	 * @param allFiles array of all files

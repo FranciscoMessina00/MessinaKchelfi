@@ -45,7 +45,7 @@ public class FilterController {
 		if (array.isEmpty()) 
 			throw new Exception("The filter can't be empty");
 			
-		
+	}	
 
 	private static Filter filterIdentification(String filterParameter, Object filterValue)
 	throws Exception{
