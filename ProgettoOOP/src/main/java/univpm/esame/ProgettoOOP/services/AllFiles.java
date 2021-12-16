@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import univpm.esame.ProgettoOOP.util.filter.Filter;
+import univpm.esame.ProgettoOOP.util.filter.FilterImpl;
 import univpm.esame.ProgettoOOP.converters.Converter;
-import univpm.esame.ProgettoOOP.exception.FileNotFound;
+import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
+import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.model.*;
 /**
  * The class calls the Dropbox API /list_folder and can either return all or some files
@@ -18,6 +19,7 @@ import univpm.esame.ProgettoOOP.model.*;
 public class AllFiles {
 	@Autowired
 	Converter converter;
+	FilterImpl filterImpl;
 	/**
 	 * 
 	 * @param fullName file's name + extension
@@ -53,14 +55,15 @@ public class AllFiles {
 	 * @param allFilesFiltered Arraylist of all Dropbox files
 	 * @param fullName file's name + extension
 	 * @return allFilesFiltered
-	 * @throws FileNotFound exception for file not found
+	 * @throws FileNotFoundException exception for file not found
+	 * @throws IncorrectFormatException Not correct format
 	 */
-	public String getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFound {
+	public String getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;
 		if (splitName.length != 2) {
-			throw new IllegalArgumentException("Parameter not in correct format");
+			throw new IncorrectFormatException("Not correct format");
 		}else {
 			name = splitName[0];
 			extension=splitName[1];
@@ -68,16 +71,16 @@ public class AllFiles {
 
 		if (name.equals("*")) {
 			
-			allFilesFiltered=Filter.filterByExtension(allFilesFiltered,extension);
+			allFilesFiltered=filterImpl.filterByExtension(allFilesFiltered,extension);
 		}else if(extension.equals("*")) {
 			
-			allFilesFiltered=Filter.filterByName(allFilesFiltered,name);
+			allFilesFiltered=filterImpl.filterByName(allFilesFiltered,name);
 		}else {
 			
-			allFilesFiltered=Filter.filterBoth(allFilesFiltered,fullName);
+			allFilesFiltered=filterImpl.filterBoth(allFilesFiltered,fullName);
 		}
 		if (allFilesFiltered.isEmpty()) {
-			throw new FileNotFound("File not found");
+			throw new FileNotFoundException("File not found");
 		}else return allFilesFiltered.toString();
 	}
     public static ArrayList<AbstractObject> getAllFiles() {

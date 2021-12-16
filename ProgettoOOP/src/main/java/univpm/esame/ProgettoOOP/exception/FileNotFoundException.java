@@ -1,15 +1,15 @@
 package univpm.esame.ProgettoOOP.exception;
 
-public class FileNotFound extends Exception{
+public class FileNotFoundException extends Exception{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public FileNotFound() {
+	public FileNotFoundException() {
 		super();
 	}
-	public FileNotFound(String msg){
+	public FileNotFoundException(String msg){
 		super(msg);
 	}
 }
