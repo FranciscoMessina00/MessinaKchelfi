@@ -39,7 +39,7 @@ public class NameAndExtensionFilter {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
-				if(!file.getName().equals(name)) {
+				if(!file.getName().contains(name)) {
 					allFiles.remove(i);
 				}
 			}else if(allFiles.get(i) instanceof Folder) {
