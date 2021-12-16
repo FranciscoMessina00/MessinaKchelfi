@@ -15,6 +15,7 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 
+import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
@@ -75,7 +76,7 @@ public class Converter implements AllConverters{
 			if (obj3.get(".tag").equals("file")) {
 				splitName = (String[])((String) obj3.get("name")).split("\\.");
 				if (splitName.length != 2) {
-				     throw new IllegalArgumentException("String not in correct format");
+				     throw new IncorrectFormatException("String not in correct format");
 				}
 				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), (String)obj3.get("server_modified"));
 //				AbstractObject file=new File((String)obj3.get("name"), "txt", (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));				
