@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import univpm.esame.ProgettoOOP.util.filter.NameAndExtensionFilter;
+import univpm.esame.ProgettoOOP.util.filter.Filter;
 import univpm.esame.ProgettoOOP.converters.Converter;
 import univpm.esame.ProgettoOOP.exception.FileNotFound;
 import univpm.esame.ProgettoOOP.model.*;
@@ -68,13 +68,13 @@ public class AllFiles {
 
 		if (name.equals("*")) {
 			
-			allFilesFiltered=NameAndExtensionFilter.filterByExtension(allFilesFiltered,extension);
+			allFilesFiltered=Filter.filterByExtension(allFilesFiltered,extension);
 		}else if(extension.equals("*")) {
 			
-			allFilesFiltered=NameAndExtensionFilter.filterByName(allFilesFiltered,name);
+			allFilesFiltered=Filter.filterByName(allFilesFiltered,name);
 		}else {
 			
-			allFilesFiltered=NameAndExtensionFilter.filterBoth(allFilesFiltered,fullName);
+			allFilesFiltered=Filter.filterBoth(allFilesFiltered,fullName);
 		}
 		if (allFilesFiltered.isEmpty()) {
 			throw new FileNotFound("File not found");

@@ -8,7 +8,7 @@ import univpm.esame.ProgettoOOP.model.*;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
-public class NameAndExtensionFilter {
+public class Filter {
 	/**
 	 * Filters all files with certain extension e.g. "*.txt"
 	 * @param allFiles array of all files
