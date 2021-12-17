@@ -12,21 +12,30 @@ import univpm.esame.ProgettoOOP.converters.AllConverters;
 import univpm.esame.ProgettoOOP.filter.FilterManager;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.services.AllFiles;
-
+/**
+ * The class is the controller that sets the paths in localhost:8080
+ * @author Francisco Messina
+ * @author Amine Kchelfi
+ */
 @RestController
 public class Controller {
 	@Autowired
 	AllConverters allConverters;
 	@Autowired
 	AllFiles allFiles;
+	/**
+	 * 
+	 * @return returns an ArrayList of all the files in DropBox
+	 * @throws Exception
+	 */
 	@GetMapping("/files")
-	public String seeFile() throws Exception {
+	public ArrayList<AbstractObject> seeFile() throws Exception {
 
-		return allFiles.getFiles(null).toString(); //ritorna tutti i file
+		return allFiles.getFiles(null); //ritorna tutti i file
 	}
 
 	@PostMapping("/files")
-	public Object seeFileFiltered(
+	public ArrayList<AbstractObject> seeFileFiltered(
 			@RequestParam(name="fullName", required = false) String fullName,
 			@RequestBody(required=false) LinkedHashMap<?,?> filterParam)
 					throws Exception {

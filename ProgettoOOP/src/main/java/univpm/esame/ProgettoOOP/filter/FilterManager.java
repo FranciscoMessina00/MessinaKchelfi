@@ -18,7 +18,7 @@ import univpm.esame.ProgettoOOP.model.AbstractObject;
  */
 public class FilterManager {
 	@SuppressWarnings({ "unchecked", "static-access" })
-	public static Object getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<AbstractObject> files) throws FilterException, TypeNotRecognisedException {
+	public static ArrayList<AbstractObject> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<AbstractObject> files) throws FilterException, TypeNotRecognisedException {
 		if(filterParam==null) {
 			return files;
 		}
