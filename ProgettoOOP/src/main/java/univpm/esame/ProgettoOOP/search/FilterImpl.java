@@ -1,21 +1,23 @@
-package univpm.esame.ProgettoOOP.util.filter;
+package univpm.esame.ProgettoOOP.search;
 
 import java.util.ArrayList;
 
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognised;
 import univpm.esame.ProgettoOOP.model.*;
 /**
  * This filter is specific for filtering files with jolly characters like *
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
-public class FilterImpl implements Filter{
+public class FilterImpl implements Search{
 	/**
 	 * Filters all files with certain extension e.g. "*.txt"
 	 * @param allFiles array of all files
 	 * @param extension the extension to filter
 	 * @return all files filtered
+	 * @throws TypeNotRecognised 
 	 */
-	public ArrayList<AbstractObject> filterByExtension(ArrayList<AbstractObject> allFiles,String extension) {
+	public ArrayList<AbstractObject> filterByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognised {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -24,7 +26,7 @@ public class FilterImpl implements Filter{
 				}
 			} else if(allFiles.get(i) instanceof Folder) {
 				allFiles.remove(i);
-			}
+			} else throw new TypeNotRecognised("The type isn't a File or Folder");
 		}
 
 		return allFiles;
@@ -34,8 +36,9 @@ public class FilterImpl implements Filter{
 	 * @param allFiles array of all files
 	 * @param name the name to filter
 	 * @return all files filtered
+	 * @throws TypeNotRecognised 
 	 */
-	public ArrayList<AbstractObject> filterByName(ArrayList<AbstractObject> allFiles,String name) {
+	public ArrayList<AbstractObject> filterByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognised {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -44,7 +47,7 @@ public class FilterImpl implements Filter{
 				}
 			}else if(allFiles.get(i) instanceof Folder) {
 				allFiles.remove(i);
-			}
+			}else throw new TypeNotRecognised("The type isn't a File or Folder");
 		}
 
 		return allFiles;

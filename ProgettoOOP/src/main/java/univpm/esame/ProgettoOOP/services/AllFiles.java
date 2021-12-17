@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import univpm.esame.ProgettoOOP.util.filter.FilterImpl;
+
 import univpm.esame.ProgettoOOP.converters.Converter;
 import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognised;
 import univpm.esame.ProgettoOOP.model.*;
+import univpm.esame.ProgettoOOP.search.FilterImpl;
 /**
  * The class calls the Dropbox API /list_folder and can either return all or some files
  * @author Francisco Messina
@@ -57,8 +59,9 @@ public class AllFiles {
 	 * @return allFilesFiltered
 	 * @throws FileNotFoundException exception for file not found
 	 * @throws IncorrectFormatException Not correct format
+	 * @throws TypeNotRecognised 
 	 */
-	public String getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException {
+	public String getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognised {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;
