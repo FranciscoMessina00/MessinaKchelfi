@@ -11,7 +11,7 @@ import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognised;
 import univpm.esame.ProgettoOOP.model.*;
-import univpm.esame.ProgettoOOP.search.FilterImpl;
+import univpm.esame.ProgettoOOP.search.SearchImpl;
 /**
  * The class calls the Dropbox API /list_folder and can either return all or some files
  * @author Francisco Messina
@@ -21,7 +21,7 @@ import univpm.esame.ProgettoOOP.search.FilterImpl;
 public class AllFiles {
 	@Autowired
 	Converter converter;
-	FilterImpl filterImpl;
+	SearchImpl filterImpl;
 	/**
 	 * 
 	 * @param fullName file's name + extension
@@ -74,13 +74,13 @@ public class AllFiles {
 
 		if (name.equals("*")) {
 			
-			allFilesFiltered=filterImpl.filterByExtension(allFilesFiltered,extension);
+			allFilesFiltered=filterImpl.searchByExtension(allFilesFiltered,extension);
 		}else if(extension.equals("*")) {
 			
-			allFilesFiltered=filterImpl.filterByName(allFilesFiltered,name);
+			allFilesFiltered=filterImpl.searchrByName(allFilesFiltered,name);
 		}else {
 			
-			allFilesFiltered=filterImpl.filterBoth(allFilesFiltered,fullName);
+			allFilesFiltered=filterImpl.searchBoth(allFilesFiltered,fullName);
 		}
 		if (allFilesFiltered.isEmpty()) {
 			throw new FileNotFoundException("File not found");

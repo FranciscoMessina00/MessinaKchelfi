@@ -9,7 +9,7 @@ import univpm.esame.ProgettoOOP.model.*;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
-public class FilterImpl implements Search{
+public class SearchImpl implements Search{
 	/**
 	 * Filters all files with certain extension e.g. "*.txt"
 	 * @param allFiles array of all files
@@ -17,7 +17,7 @@ public class FilterImpl implements Search{
 	 * @return all files filtered
 	 * @throws TypeNotRecognised 
 	 */
-	public ArrayList<AbstractObject> filterByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognised {
+	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognised {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -38,7 +38,7 @@ public class FilterImpl implements Search{
 	 * @return all files filtered
 	 * @throws TypeNotRecognised 
 	 */
-	public ArrayList<AbstractObject> filterByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognised {
+	public ArrayList<AbstractObject> searchrByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognised {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -58,7 +58,7 @@ public class FilterImpl implements Search{
 	 * @param fullName name+extension to filter
 	 * @return all files filtered
 	 */
-	public ArrayList<AbstractObject> filterBoth(ArrayList<AbstractObject> allFiles,String fullName) {
+	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
