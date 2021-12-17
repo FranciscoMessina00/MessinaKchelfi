@@ -6,7 +6,16 @@ import java.util.LinkedHashMap;
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
-
+/* Esempio formato json su postman filtro:
+ * {
+    "filter":
+    {
+        "size":{"sizeFile":250,"logic":"lower"},
+        "date":{"dateParam":"2021-12-16 12:12:00","logic":"lower"}
+    },
+    "operator":"and"
+	}
+ */
 public class FilterManager {
 	@SuppressWarnings({ "unchecked", "static-access" })
 	public static Object getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<AbstractObject> files) throws FilterException, TypeNotRecognisedException {
