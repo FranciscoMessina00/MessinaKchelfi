@@ -15,11 +15,11 @@ public class FilterBoth {
 		this.size = filterSize;
 	}
 	public ArrayList<AbstractObject> doAndFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
-		if(size.getLogic().equals("grater")&&date.getLogic().equals("grater")) {
+		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!size.filterGrater(file.getSize())||!date.filterGrater(file.getModification_Date())) {
+					if(!size.filterGreater(file.getSize())||!date.filterGreater(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -27,11 +27,11 @@ public class FilterBoth {
 				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
-		if(size.getLogic().equals("lower")&&date.getLogic().equals("grater")) {
+		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!size.filterLower(file.getSize())||!date.filterGrater(file.getModification_Date())) {
+					if(!size.filterLower(file.getSize())||!date.filterGreater(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -39,11 +39,11 @@ public class FilterBoth {
 				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
-		if(size.getLogic().equals("grater")&&date.getLogic().equals("lower")) {
+		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!size.filterGrater(file.getSize())||!date.filterLower(file.getModification_Date())) {
+					if(!size.filterGreater(file.getSize())||!date.filterLower(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -66,11 +66,11 @@ public class FilterBoth {
 		return files;
 	}
 	public ArrayList<AbstractObject> doOrFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
-		if(size.getLogic().equals("grater")&&date.getLogic().equals("grater")) {
+		if(size.getLogic().equals("greater")&&date.getLogic().equals("grater")) {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!size.filterGrater(file.getSize())&&!date.filterGrater(file.getModification_Date())) {
+					if(!size.filterGreater(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -78,11 +78,11 @@ public class FilterBoth {
 				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
-		if(size.getLogic().equals("lower")&&date.getLogic().equals("grater")) {
+		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!size.filterLower(file.getSize())&&!date.filterGrater(file.getModification_Date())) {
+					if(!size.filterLower(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -90,11 +90,11 @@ public class FilterBoth {
 				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
-		if(size.getLogic().equals("grater")&&date.getLogic().equals("lower")) {
+		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!size.filterGrater(file.getSize())&&!date.filterLower(file.getModification_Date())) {
+					if(!size.filterGreater(file.getSize())&&!date.filterLower(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {

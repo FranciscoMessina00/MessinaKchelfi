@@ -19,7 +19,7 @@ public class FilterSize {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!filterGrater(file.getSize())) {
+					if(!filterGreater(file.getSize())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -52,7 +52,7 @@ public class FilterSize {
 	public void setLogic(String logic) {
 		this.logic = logic;
 	}
-	public boolean filterGrater(long size) {
+	public boolean filterGreater(long size) {
 		return size>=this.param;
 	}
 	public boolean filterLower(long size) {

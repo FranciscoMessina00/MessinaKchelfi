@@ -20,7 +20,7 @@ public class FilterDate {
 			for (int i=files.size()-1;i>=0;i--) {
 				if (files.get(i) instanceof File) {
 					File file=(File)files.get(i);
-					if(!filterGrater(file.getModification_Date())) {
+					if(!filterGreater(file.getModification_Date())) {
 						files.remove(i);
 					}
 				} else if(files.get(i) instanceof Folder) {
@@ -53,7 +53,7 @@ public class FilterDate {
 	public void setLogic(String logic) {
 		this.logic = logic;
 	}
-	public boolean filterGrater(Timestamp date) {
+	public boolean filterGreater(Timestamp date) {
 		return date.after(param);
 	}
 	public boolean filterLower(Timestamp date) {

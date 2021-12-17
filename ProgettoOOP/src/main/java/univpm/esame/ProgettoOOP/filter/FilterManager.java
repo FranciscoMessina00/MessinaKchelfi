@@ -24,8 +24,8 @@ public class FilterManager {
 				flag=true;
 				LinkedHashMap<String,?> size=(LinkedHashMap<String,?>)filter.get("size");
 				String logic=(String) size.get("logic");
-				if(!logic.equalsIgnoreCase("grater")&&!logic.equalsIgnoreCase("lower")) {
-					throw new FilterException("Filter must contain a logic \"grater\" or \"lower\"");
+				if(!logic.equalsIgnoreCase("greater")&&!logic.equalsIgnoreCase("lower")) {
+					throw new FilterException("Filter must contain a logic \"greater\" or \"lower\"");
 				}
 				long sizeFile=(int)size.get("sizeFile");
 				filterSize=new FilterSize(sizeFile,logic);
@@ -36,8 +36,8 @@ public class FilterManager {
 				Timestamp dateParam=new Timestamp(0);
 				LinkedHashMap<String,?> date=(LinkedHashMap<String,?>)filter.get("date");
 				String logic=(String) date.get("logic");
-				if(!logic.equalsIgnoreCase("grater")&&!logic.equalsIgnoreCase("lower")) {
-					throw new FilterException("Filter must contain a logic \"grater\" or \"lower\"");
+				if(!logic.equalsIgnoreCase("greater")&&!logic.equalsIgnoreCase("lower")) {
+					throw new FilterException("Filter must contain a logic \"greater\" or \"lower\"");
 				}
 				//conversion from string to Timestamp
 				dateParam=(Timestamp)dateParam.valueOf((String)date.get("dateParam"));
