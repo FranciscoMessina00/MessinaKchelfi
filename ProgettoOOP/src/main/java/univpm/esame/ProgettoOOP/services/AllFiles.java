@@ -21,7 +21,8 @@ import univpm.esame.ProgettoOOP.search.SearchImpl;
 public class AllFiles {
 	@Autowired
 	Converter converter;
-	SearchImpl filterImpl;
+	@Autowired
+	SearchImpl searchImpl;
 	/**
 	 * 
 	 * @param fullName file's name + extension
@@ -74,13 +75,13 @@ public class AllFiles {
 
 		if (name.equals("*")) {
 			
-			allFilesFiltered=filterImpl.searchByExtension(allFilesFiltered,extension);
+			allFilesFiltered=searchImpl.searchByExtension(allFilesFiltered,extension);
 		}else if(extension.equals("*")) {
 			
-			allFilesFiltered=filterImpl.searchrByName(allFilesFiltered,name);
+			allFilesFiltered=searchImpl.searchByName(allFilesFiltered,name);
 		}else {
 			
-			allFilesFiltered=filterImpl.searchBoth(allFilesFiltered,fullName);
+			allFilesFiltered=searchImpl.searchBoth(allFilesFiltered,fullName);
 		}
 		if (allFilesFiltered.isEmpty()) {
 			throw new FileNotFoundException("File not found");

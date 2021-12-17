@@ -7,7 +7,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -66,11 +68,13 @@ public class Converter implements AllConverters{
 	}
 
 	
+	@SuppressWarnings("static-access")
 	public ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception {
 		ArrayList<AbstractObject> allFiles=new ArrayList<AbstractObject>();
 		String[] splitName;
 		JSONArray obj2 = (JSONArray) obj.get("entries");
 		JSONObject obj3= new JSONObject();
+		Timestamp date= new Timestamp(0);
 		for (int i=0; i<obj2.size();i++) {
 			obj3=(JSONObject) obj2.get(i);
 			if (obj3.get(".tag").equals("file")) {
@@ -78,8 +82,11 @@ public class Converter implements AllConverters{
 				if (splitName.length != 2) {
 				     throw new IncorrectFormatException("String not in correct format");
 				}
-				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), (String)obj3.get("server_modified"));
-//				AbstractObject file=new File((String)obj3.get("name"), "txt", (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"));				
+				String dataRaw=(String)obj3.get("server_modified");
+				String dataOk=dataRaw.replace("T", "\s");
+				dataOk=dataOk.replace("Z", "");
+				date=date.valueOf(dataOk);
+				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), date);
 				allFiles.add(file);
 			} else if (obj3.get(".tag").equals("folder")) {
 				AbstractObject folder=new Folder((String)obj3.get("name"),(String)obj3.get("path_lower"),(String)obj3.get("id"));

@@ -26,10 +26,10 @@ public class Controller {
 	@PostMapping("/files")
 	public String seeFileFiltered(
 			@RequestParam(name="fullName", required = false) String fullName,
-			@RequestBody(required=false) JSONObject dateFilter)
+			@RequestBody(required=false) JSONObject filter)
 			throws Exception {
 		
-		return allFiles.getFiles(fullName)+dateFilter;
+		return allFiles.getFiles(fullName);
 	}
 	
 //	@GetMapping("/stats")

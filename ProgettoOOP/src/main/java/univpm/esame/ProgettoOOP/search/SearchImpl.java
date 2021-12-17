@@ -2,6 +2,8 @@ package univpm.esame.ProgettoOOP.search;
 
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognised;
 import univpm.esame.ProgettoOOP.model.*;
 /**
@@ -9,6 +11,7 @@ import univpm.esame.ProgettoOOP.model.*;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
+@Service
 public class SearchImpl implements Search{
 	/**
 	 * Filters all files with certain extension e.g. "*.txt"
@@ -38,7 +41,7 @@ public class SearchImpl implements Search{
 	 * @return all files filtered
 	 * @throws TypeNotRecognised 
 	 */
-	public ArrayList<AbstractObject> searchrByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognised {
+	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognised {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
