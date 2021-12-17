@@ -3,9 +3,6 @@ package univpm.esame.ProgettoOOP.filter;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-
-import org.json.simple.JSONObject;
-
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
@@ -16,15 +13,15 @@ public class FilterManager {
 		if(filterParam==null) {
 			return files;
 		}
-		@SuppressWarnings("unchecked")
 		LinkedHashMap<String,?> filter=(LinkedHashMap<String,?>)filterParam.get("filter");
 		FilterSize filterSize=null;
 		FilterDate filterDate=null;
+		boolean flag=false;
 		if (filter.size()==0) {
 			return files;
 		}else {
 			if (filter.containsKey("size")) {
-				@SuppressWarnings("unchecked")
+				flag=true;
 				LinkedHashMap<String,?> size=(LinkedHashMap<String,?>)filter.get("size");
 				String logic=(String) size.get("logic");
 				if(!logic.equalsIgnoreCase("grater")&&!logic.equalsIgnoreCase("lower")) {
@@ -32,10 +29,10 @@ public class FilterManager {
 				}
 				long sizeFile=(int)size.get("sizeFile");
 				filterSize=new FilterSize(sizeFile,logic);
-				
+
 			}
 			if(filter.containsKey("date")) {
-				
+				flag=true;
 				Timestamp dateParam=new Timestamp(0);
 				LinkedHashMap<String,?> date=(LinkedHashMap<String,?>)filter.get("date");
 				String logic=(String) date.get("logic");
@@ -45,8 +42,9 @@ public class FilterManager {
 				//conversion from string to Timestamp
 				dateParam=(Timestamp)dateParam.valueOf((String)date.get("dateParam"));
 				filterDate=new FilterDate(dateParam,logic);
-				
-			}else throw new FilterException("Filter not recognised");
+
+			}
+			if (!flag) throw new FilterException("Filter not recognised");
 			if(filter.size()==1) {
 				if (filter.containsKey("size"))return filterSize.doFilter(files);
 				if (filter.containsKey("date"))return filterDate.doFilter(files);
@@ -62,7 +60,7 @@ public class FilterManager {
 					return filterBoth.doOrFilter(files);
 				}else throw new FilterException("Wrong operator");
 			}else throw new FilterException("Filter not in correct format");
-			
+
 		}
 		return null;
 	}
