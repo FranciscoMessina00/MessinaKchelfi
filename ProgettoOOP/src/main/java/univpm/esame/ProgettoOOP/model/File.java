@@ -38,6 +38,7 @@ public class File extends AbstractObject{
 	 * @param id String identifier of file in DropBox
 	 * @param shared Boolean states if the file is shared
 	 * @param version String is a code that identifies the version of the file
+	 * @param modification_date The last modification date registered in DropBox
 	 */
 	public File(String name, String extension, long size , String path, String id, boolean shared, String version, Timestamp modification_date) {
 		super(name, path, "File", id);
@@ -52,7 +53,7 @@ public class File extends AbstractObject{
 	}
 	/**
 	 * Returns the file's extension
-	 * @return extension
+	 * @return extension 
 	 */
 	public String getExtension() {
 		return extension;
@@ -120,11 +121,17 @@ public class File extends AbstractObject{
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
+	/**
+	 * Returns modification date
+	 * @return modification_date
+	 */
 	public Timestamp getModification_Date() {
 		return modification_date;
 	}
-
+	/**
+	 * Sets the modification date
+	 * @param modification_date Last modification date in DropBox
+	 */
 	public void setModification_Date(Timestamp modification_date) {
 		this.modification_date = modification_date;
 	}

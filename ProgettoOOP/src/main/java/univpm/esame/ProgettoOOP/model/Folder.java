@@ -20,7 +20,9 @@ public class Folder extends AbstractObject{
 	public Folder(String name, String path, String id) {
 		super(name, path,"Folder", id);
 	}
-
+	/**
+	 * Better way to display the information
+	 */
 	@Override
 	public String toString() {
 		return 	"\nFolder Name: "+this.name+

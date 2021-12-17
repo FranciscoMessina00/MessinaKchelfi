@@ -60,7 +60,7 @@ public class AllFiles {
 	 * @return allFilesFiltered
 	 * @throws FileNotFoundException exception for file not found
 	 * @throws IncorrectFormatException Not correct format
-	 * @throws TypeNotRecognisedException 
+	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognisedException {
 		String[] splitName = fullName.split("\\.");
@@ -87,7 +87,4 @@ public class AllFiles {
 			throw new FileNotFoundException("File not found");
 		}else return allFilesFiltered;
 	}
-    public static ArrayList<AbstractObject> getAllFiles() {
-        return null;
-    }
 }

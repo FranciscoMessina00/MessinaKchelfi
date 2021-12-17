@@ -5,25 +5,12 @@ package univpm.esame.ProgettoOOP.model;
  * @author Amine Kchelfi
  */
 public abstract class AbstractObject {
-    /**
-     * Name of the object
-     */
+    
     protected String name;
-    /**
-     * Path of the object on Dropbox
-     */
     protected String path;
-	/**
-	 * Tag of the object
-	 */
 	protected String tag;
-	/**
-	 * Every folder or file has a id given by Dropbox
-	 */
 	protected String id;
-	
 	protected String modification_date;
-
     /**
      * Constructor of the Class without parameters
      */
@@ -104,6 +91,8 @@ public abstract class AbstractObject {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
-
+	/**
+	 * toString()
+	 */
     public abstract String toString();
 }

@@ -16,7 +16,20 @@ import univpm.esame.ProgettoOOP.model.AbstractObject;
     "operator":"and"
 	}
  */
+/**
+ * The class manages the two filters, the last modification date and size filter
+ * @author Francisco Messina
+ * @author Amine Kchelfi
+ */
 public class FilterManager {
+	/**
+	 * The method calls specific filters
+	 * @param filterParam The filter parameters
+	 * @param files The files to filter
+	 * @return all the files filtered
+	 * @throws FilterException Filter exception
+	 * @throws TypeNotRecognisedException Type not recognised exception
+	 */
 	@SuppressWarnings({ "unchecked", "static-access" })
 	public static ArrayList<AbstractObject> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<AbstractObject> files) throws FilterException, TypeNotRecognisedException {
 		if(filterParam==null) {

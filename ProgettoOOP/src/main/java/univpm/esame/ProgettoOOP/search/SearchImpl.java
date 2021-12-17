@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.*;
 /**
- * This filter is specific for filtering files with jolly characters like *
+ * This search class is specific for searchig files with jolly characters like *
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
@@ -18,7 +18,7 @@ public class SearchImpl implements Search{
 	 * @param allFiles array of all files
 	 * @param extension the extension to filter
 	 * @return all files filtered
-	 * @throws TypeNotRecognisedException 
+	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognisedException {
 		for (int i=allFiles.size()-1;i>=0;i--) {
@@ -39,7 +39,7 @@ public class SearchImpl implements Search{
 	 * @param allFiles array of all files
 	 * @param name the name to filter
 	 * @return all files filtered
-	 * @throws TypeNotRecognisedException 
+	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognisedException {
 		for (int i=allFiles.size()-1;i>=0;i--) {
@@ -60,7 +60,7 @@ public class SearchImpl implements Search{
 	 * @param allFiles array of all files
 	 * @param fullName name+extension to filter
 	 * @return all files filtered
-	 * @throws TypeNotRecognisedException 
+	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) throws TypeNotRecognisedException {
 		for (int i=allFiles.size()-1;i>=0;i--) {
