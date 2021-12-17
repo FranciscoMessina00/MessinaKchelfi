@@ -15,12 +15,17 @@ import org.json.simple.JSONValue;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
+/**
+ * The class implements the converters
+ * @author Francisco Messina
+ * @author Amine Kchelfi
+ */
 @Service
 public class Converter implements AllConverters{
-
 	public JSONObject APIToJSONObject(String url, String jsonBody) {
 		JSONObject obj=null;
 		
@@ -64,7 +69,6 @@ public class Converter implements AllConverters{
 		return obj;
 	}
 
-	
 	@SuppressWarnings("static-access")
 	public ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception {
 		ArrayList<AbstractObject> allFiles=new ArrayList<AbstractObject>();
@@ -88,7 +92,7 @@ public class Converter implements AllConverters{
 			} else if (obj3.get(".tag").equals("folder")) {
 				AbstractObject folder=new Folder((String)obj3.get("name"),(String)obj3.get("path_lower"),(String)obj3.get("id"));
 				allFiles.add(folder);
-			} else return null; //create exception
+			} else throw new TypeNotRecognisedException("Type not recognised");
 		}
 		return allFiles;
 	}

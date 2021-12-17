@@ -26,14 +26,20 @@ public class Controller {
 	/**
 	 * 
 	 * @return returns an ArrayList of all the files in DropBox
-	 * @throws Exception
+	 * @throws Exception Exception
 	 */
 	@GetMapping("/files")
 	public ArrayList<AbstractObject> seeFile() throws Exception {
 
 		return allFiles.getFiles(null); //ritorna tutti i file
 	}
-
+	/**
+	 * 
+	 * @param fullName represents the file's name with extension we want to search (jolly * can be used)
+	 * @param filterParam represents the filter
+	 * @return returns an ArrayList of all the files in DropBox filtered by modified date or/and size
+	 * @throws Exception Exception
+	 */
 	@PostMapping("/files")
 	public ArrayList<AbstractObject> seeFileFiltered(
 			@RequestParam(name="fullName", required = false) String fullName,

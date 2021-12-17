@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"univpm.esame.ProgettoOOP.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"univpm.esame.ProgettoOOP.controller"},{"l":"univpm.esame.ProgettoOOP.converters"},{"l":"univpm.esame.ProgettoOOP.exception"}];updateSearchResults();
