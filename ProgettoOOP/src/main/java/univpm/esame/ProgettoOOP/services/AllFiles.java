@@ -29,7 +29,7 @@ public class AllFiles {
 	 * @return allFiles
 	 * @throws Exception exception
 	 */
-	public String getFiles(String fullName) throws Exception{
+	public ArrayList<AbstractObject> getFiles(String fullName) throws Exception{
 		String url="https://api.dropboxapi.com/2/files/list_folder";
 		String jsonBody="{\r\n" + "    \"path\": \"\",\r\n" + "    \"recursive\": true,\r\n"
 				+ "    \"include_media_info\": true,\r\n" + "    \"include_deleted\": false,\r\n"
@@ -50,8 +50,8 @@ public class AllFiles {
 	 * @param allFilesNotFiltered all files
 	 * @return allFilesNotFiltered
 	 */
-	public String getAllFiles(ArrayList<AbstractObject> allFilesNotFiltered) {
-		return allFilesNotFiltered.toString();
+	public ArrayList<AbstractObject> getAllFiles(ArrayList<AbstractObject> allFilesNotFiltered) {
+		return allFilesNotFiltered;
 	}
 	/**
 	 * The method filters allFiles either by their extension or name
@@ -62,7 +62,7 @@ public class AllFiles {
 	 * @throws IncorrectFormatException Not correct format
 	 * @throws TypeNotRecognised 
 	 */
-	public String getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognised {
+	public ArrayList<AbstractObject> getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognised {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;
@@ -85,7 +85,7 @@ public class AllFiles {
 		}
 		if (allFilesFiltered.isEmpty()) {
 			throw new FileNotFoundException("File not found");
-		}else return allFilesFiltered.toString();
+		}else return allFilesFiltered;
 	}
     public static ArrayList<AbstractObject> getAllFiles() {
         return null;
