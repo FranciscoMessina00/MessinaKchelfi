@@ -28,8 +28,8 @@ public class Controller {
 			@RequestParam(name="fullName", required = false) String fullName,
 			@RequestBody(required=false) JSONObject filter)
 			throws Exception {
-		
-		return allFiles.getFiles(fullName);
+		allFiles.getFiles(fullName);
+		return null;
 	}
 	
 //	@GetMapping("/stats")
