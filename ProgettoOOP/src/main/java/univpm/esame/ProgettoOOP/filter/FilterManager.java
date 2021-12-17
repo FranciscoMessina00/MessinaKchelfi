@@ -18,9 +18,11 @@ public class FilterManager {
 		}
 		@SuppressWarnings("unchecked")
 		LinkedHashMap<String,?> filter=(LinkedHashMap<String,?>)filterParam.get("filter");
+		FilterSize filterSize=null;
+		FilterDate filterDate=null;
 		if (filter.size()==0) {
 			return files;
-		}else if(filter.size()==1) {
+		}else {
 			if (filter.containsKey("size")) {
 				@SuppressWarnings("unchecked")
 				LinkedHashMap<String,?> size=(LinkedHashMap<String,?>)filter.get("size");
@@ -29,9 +31,10 @@ public class FilterManager {
 					throw new FilterException("Filter must contain a logic \"grater\" or \"lower\"");
 				}
 				long sizeFile=(int)size.get("sizeFile");
-				FilterSize filterSize=new FilterSize(sizeFile,logic);
-				return filterSize.doFilter(files);
-			}else if(filter.containsKey("date")) {
+				filterSize=new FilterSize(sizeFile,logic);
+				
+			}
+			if(filter.containsKey("date")) {
 				
 				Timestamp dateParam=new Timestamp(0);
 				LinkedHashMap<String,?> date=(LinkedHashMap<String,?>)filter.get("date");
@@ -41,17 +44,26 @@ public class FilterManager {
 				}
 				//conversion from string to Timestamp
 				dateParam=(Timestamp)dateParam.valueOf((String)date.get("dateParam"));
-				FilterDate filterDate=new FilterDate(dateParam,logic);
-				return filterDate.doFilter(files);
+				filterDate=new FilterDate(dateParam,logic);
+				
 			}else throw new FilterException("Filter not recognised");
-		}else if(filter.size()==2) {
-			if(!filter.containsKey("size")&&!filter.containsKey("date")) {
-				throw new FilterException("1 or 2 filters not recognised");
-			}
+			if(filter.size()==1) {
+				if (filter.containsKey("size"))return filterSize.doFilter(files);
+				if (filter.containsKey("date"))return filterDate.doFilter(files);
+			}else if(filter.size()==2) {
+				String operator=(String)filterParam.get("operator");
+				FilterBoth filterBoth=new FilterBoth(filterDate,filterSize);
+				if((!filter.containsKey("size")&&!filter.containsKey("date"))||operator==null) {
+					throw new FilterException("Filter in wrong format");
+				}
+				if(operator.equalsIgnoreCase("and")) {
+					return filterBoth.doAndFilter(files);
+				}else if(operator.equalsIgnoreCase("or")) {
+					return filterBoth.doOrFilter(files);
+				}else throw new FilterException("Wrong operator");
+			}else throw new FilterException("Filter not in correct format");
 			
-			
-			
-			return null;
-		}else throw new FilterException("Filter not in correct format");
+		}
+		return null;
 	}
 }

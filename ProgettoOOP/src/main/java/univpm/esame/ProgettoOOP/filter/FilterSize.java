@@ -40,6 +40,18 @@ public class FilterSize {
 		}
 		return files;
 	}
+	public long getParam() {
+		return param;
+	}
+	public void setParam(long param) {
+		this.param = param;
+	}
+	public String getLogic() {
+		return logic;
+	}
+	public void setLogic(String logic) {
+		this.logic = logic;
+	}
 	public boolean filterGrater(long size) {
 		return size>=this.param;
 	}

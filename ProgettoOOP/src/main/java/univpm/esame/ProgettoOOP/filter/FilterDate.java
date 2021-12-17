@@ -41,6 +41,18 @@ public class FilterDate {
 		}
 		return files;
 	}
+	public Timestamp getParam() {
+		return param;
+	}
+	public void setParam(Timestamp param) {
+		this.param = param;
+	}
+	public String getLogic() {
+		return logic;
+	}
+	public void setLogic(String logic) {
+		this.logic = logic;
+	}
 	public boolean filterGrater(Timestamp date) {
 		return date.after(param);
 	}
