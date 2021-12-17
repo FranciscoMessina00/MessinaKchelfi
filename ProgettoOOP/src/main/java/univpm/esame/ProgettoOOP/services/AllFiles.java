@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import univpm.esame.ProgettoOOP.converters.Converter;
 import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
-import univpm.esame.ProgettoOOP.exception.TypeNotRecognised;
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.*;
 import univpm.esame.ProgettoOOP.search.SearchImpl;
 /**
@@ -60,9 +60,9 @@ public class AllFiles {
 	 * @return allFilesFiltered
 	 * @throws FileNotFoundException exception for file not found
 	 * @throws IncorrectFormatException Not correct format
-	 * @throws TypeNotRecognised 
+	 * @throws TypeNotRecognisedException 
 	 */
-	public ArrayList<AbstractObject> getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognised {
+	public ArrayList<AbstractObject> getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognisedException {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;

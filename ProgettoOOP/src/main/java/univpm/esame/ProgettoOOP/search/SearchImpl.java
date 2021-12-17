@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import univpm.esame.ProgettoOOP.exception.TypeNotRecognised;
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.*;
 /**
  * This filter is specific for filtering files with jolly characters like *
@@ -18,9 +18,9 @@ public class SearchImpl implements Search{
 	 * @param allFiles array of all files
 	 * @param extension the extension to filter
 	 * @return all files filtered
-	 * @throws TypeNotRecognised 
+	 * @throws TypeNotRecognisedException 
 	 */
-	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognised {
+	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognisedException {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -29,7 +29,7 @@ public class SearchImpl implements Search{
 				}
 			} else if(allFiles.get(i) instanceof Folder) {
 				allFiles.remove(i);
-			} else throw new TypeNotRecognised("The type isn't a File or Folder");
+			} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
 
 		return allFiles;
@@ -39,9 +39,9 @@ public class SearchImpl implements Search{
 	 * @param allFiles array of all files
 	 * @param name the name to filter
 	 * @return all files filtered
-	 * @throws TypeNotRecognised 
+	 * @throws TypeNotRecognisedException 
 	 */
-	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognised {
+	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognisedException {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -50,7 +50,7 @@ public class SearchImpl implements Search{
 				}
 			}else if(allFiles.get(i) instanceof Folder) {
 				allFiles.remove(i);
-			}else throw new TypeNotRecognised("The type isn't a File or Folder");
+			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
 
 		return allFiles;

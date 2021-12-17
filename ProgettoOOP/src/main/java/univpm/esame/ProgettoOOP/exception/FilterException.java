@@ -1,16 +1,15 @@
 package univpm.esame.ProgettoOOP.exception;
 
-public class TypeNotRecognised extends Exception{
+public class FilterException extends Exception{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public TypeNotRecognised() {
+	public FilterException() {
 		super();
 	}
-	
-	public TypeNotRecognised(String msg) {
+	public FilterException(String msg) {
 		super(msg);
 	}
 }
