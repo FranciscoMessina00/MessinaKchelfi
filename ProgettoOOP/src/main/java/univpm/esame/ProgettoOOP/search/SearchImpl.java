@@ -60,8 +60,9 @@ public class SearchImpl implements Search{
 	 * @param allFiles array of all files
 	 * @param fullName name+extension to filter
 	 * @return all files filtered
+	 * @throws TypeNotRecognisedException 
 	 */
-	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) {
+	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) throws TypeNotRecognisedException {
 		for (int i=allFiles.size()-1;i>=0;i--) {
 			if (allFiles.get(i) instanceof File) {
 				File file=(File)allFiles.get(i);
@@ -70,7 +71,7 @@ public class SearchImpl implements Search{
 				}
 			}else if(allFiles.get(i) instanceof Folder) {
 				allFiles.remove(i);
-			}
+			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
 
 		return allFiles;
