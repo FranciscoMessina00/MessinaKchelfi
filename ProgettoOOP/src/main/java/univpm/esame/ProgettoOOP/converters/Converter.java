@@ -87,12 +87,13 @@ public class Converter implements AllConverters{
 				String dataOk=dataRaw.replace("T", "\s");
 				dataOk=dataOk.replace("Z", "");
 				date=date.valueOf(dataOk);
-				AbstractObject file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), date);
+				File file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), date);
+				file.createUrl();
 				allFiles.add(file);
 			} else if (obj3.get(".tag").equals("folder")) {
-				AbstractObject folder=new Folder((String)obj3.get("name"),(String)obj3.get("path_lower"),(String)obj3.get("id"));
+				Folder folder=new Folder((String)obj3.get("name"),(String)obj3.get("path_lower"),(String)obj3.get("id"));
 				allFiles.add(folder);
-			} else throw new TypeNotRecognisedException("Type not recognised");
+			} else throw new TypeNotRecognisedException("Type not recognised, must be File or Folder");
 		}
 		return allFiles;
 	}

@@ -42,8 +42,7 @@ public class File extends AbstractObject{
 	 */
 	public File(String name, String extension, long size , String path, String id, boolean shared, String version, Timestamp modification_date) {
 		super(name, path, "File", id);
-		Converter converter= new Converter();
-		this.url=((String)converter.APIToJSONObject("https://api.dropboxapi.com/2/files/get_temporary_link", "{\r\n    \"path\": \""+this.path+"\"\r\n}").get("link"));
+		this.url="";
 		this.extension=extension;
 		this.size=size;
 		this.shared=shared;
@@ -120,6 +119,10 @@ public class File extends AbstractObject{
 	 */
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	public void createUrl() {
+		Converter converter= new Converter();
+		this.url=((String)converter.APIToJSONObject("https://api.dropboxapi.com/2/files/get_temporary_link", "{\r\n    \"path\": \""+this.path+"\"\r\n}").get("link"));
 	}
 	/**
 	 * Returns modification date
