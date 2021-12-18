@@ -120,6 +120,9 @@ public class File extends AbstractObject{
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	/**
+	 * Creates the downloadable url calling the API get_temporary_link
+	 */
 	public void createUrl() {
 		Converter converter= new Converter();
 		this.url=((String)converter.APIToJSONObject("https://api.dropboxapi.com/2/files/get_temporary_link", "{\r\n    \"path\": \""+this.path+"\"\r\n}").get("link"));
