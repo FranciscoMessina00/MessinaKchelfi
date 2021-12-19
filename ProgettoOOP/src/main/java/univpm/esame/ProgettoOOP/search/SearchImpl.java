@@ -1,6 +1,7 @@
 package univpm.esame.ProgettoOOP.search;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.springframework.stereotype.Service;
 
@@ -21,15 +22,17 @@ public class SearchImpl implements Search{
 	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognisedException {
-		for (int i=allFiles.size()-1;i>=0;i--) {
-			if (allFiles.get(i) instanceof File) {
-				File file=(File)allFiles.get(i);
+		Iterator<AbstractObject> it=allFiles.iterator();
+		while(it.hasNext()){
+			AbstractObject abob=it.next();
+			if ( abob instanceof File) {
+				File file=(File)abob;
 				if(!file.getExtension().equals(extension)) {
-					allFiles.remove(i);
+					it.remove();
 				}
-			} else if(allFiles.get(i) instanceof Folder) {
-				allFiles.remove(i);
-			} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+			}else if(abob instanceof Folder) {
+				it.remove();
+			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
 
 		return allFiles;
@@ -42,16 +45,19 @@ public class SearchImpl implements Search{
 	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognisedException {
-		for (int i=allFiles.size()-1;i>=0;i--) {
-			if (allFiles.get(i) instanceof File) {
-				File file=(File)allFiles.get(i);
+		Iterator<AbstractObject> it=allFiles.iterator();
+		while(it.hasNext()){
+			AbstractObject abob=it.next();
+			if ( abob instanceof File) {
+				File file=(File)abob;
 				if(!file.getName().contains(name)) {
-					allFiles.remove(i);
+					it.remove();
 				}
-			}else if(allFiles.get(i) instanceof Folder) {
-				allFiles.remove(i);
+			}else if(abob instanceof Folder) {
+				it.remove();
 			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
+
 
 		return allFiles;
 	}
@@ -63,18 +69,20 @@ public class SearchImpl implements Search{
 	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) throws TypeNotRecognisedException {
-		for (int i=allFiles.size()-1;i>=0;i--) {
-			if (allFiles.get(i) instanceof File) {
-				File file=(File)allFiles.get(i);
+		Iterator<AbstractObject> it=allFiles.iterator();
+		while(it.hasNext()){
+			AbstractObject abob=it.next();
+			if ( abob instanceof File) {
+				File file=(File)abob;
 				if(!file.fullName().equals(fullName)) {
-					allFiles.remove(i);
+					it.remove();
 				}
-			}else if(allFiles.get(i) instanceof Folder) {
-				allFiles.remove(i);
+			}else if(abob instanceof Folder) {
+				it.remove();
 			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
 
 		return allFiles;
 	}
-	
+
 }

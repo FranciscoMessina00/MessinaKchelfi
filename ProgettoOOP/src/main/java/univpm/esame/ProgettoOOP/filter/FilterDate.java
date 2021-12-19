@@ -2,6 +2,7 @@ package univpm.esame.ProgettoOOP.filter;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
@@ -32,26 +33,30 @@ public class FilterDate {
 	 */
 	public ArrayList<AbstractObject> doFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
 		if (logic.equalsIgnoreCase("greater")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if (abob instanceof File) {
+					File file=(File)abob;
 					if(!filterGreater(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}else {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if (abob instanceof File) {
+					File file=(File)abob;
 					if(!filterLower(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		return files;

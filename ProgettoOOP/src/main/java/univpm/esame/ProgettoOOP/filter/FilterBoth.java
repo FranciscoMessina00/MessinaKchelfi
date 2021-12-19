@@ -1,6 +1,7 @@
 package univpm.esame.ProgettoOOP.filter;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
@@ -31,51 +32,59 @@ public class FilterBoth {
 	 */
 	public ArrayList<AbstractObject> doAndFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())||!date.filterGreater(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterLower(file.getSize())||!date.filterGreater(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())||!date.filterLower(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("lower")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterLower(file.getSize())||!date.filterLower(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		return files;
@@ -87,52 +96,60 @@ public class FilterBoth {
 	 * @throws TypeNotRecognisedException Exception
 	 */
 	public ArrayList<AbstractObject> doOrFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
-		if(size.getLogic().equals("greater")&&date.getLogic().equals("grater")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterLower(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())&&!date.filterLower(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("lower")) {
-			for (int i=files.size()-1;i>=0;i--) {
-				if (files.get(i) instanceof File) {
-					File file=(File)files.get(i);
+			Iterator<AbstractObject> it=files.iterator();
+			while(it.hasNext()){
+				AbstractObject abob=it.next();
+				if ( abob instanceof File) {
+					File file=(File)abob;
 					if(!size.filterLower(file.getSize())&&!date.filterLower(file.getModification_Date())) {
-						files.remove(i);
+						it.remove();
 					}
-				} else if(files.get(i) instanceof Folder) {
-					files.remove(i);
-				} else throw new TypeNotRecognisedException("The type isn't a File or Folder");
+				}else if(abob instanceof Folder) {
+					it.remove();
+				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}
 		return files;

@@ -74,13 +74,12 @@ public class AllFiles {
 		}
 
 		if (name.equals("*")) {
-			
 			allFilesFiltered=searchImpl.searchByExtension(allFilesFiltered,extension);
-		}else if(extension.equals("*")) {
-			
+		}
+		else if(extension.equals("*")) {
 			allFilesFiltered=searchImpl.searchByName(allFilesFiltered,name);
-		}else {
-			
+		}
+		else {
 			allFilesFiltered=searchImpl.searchBoth(allFilesFiltered,fullName);
 		}
 		if (allFilesFiltered.isEmpty()) {

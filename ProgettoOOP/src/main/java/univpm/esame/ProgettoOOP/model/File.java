@@ -161,12 +161,4 @@ public class File extends AbstractObject{
 				"\nDownload file: "+this.url+
 				"\nModification date: "+this.modification_date+"\n";
 	}
-	/**
-	 * Still to define
-	 * @return null
-	 */
-    public static ArrayList<AbstractObject> getFile() {
-        return null;
-    }
-	
 }
