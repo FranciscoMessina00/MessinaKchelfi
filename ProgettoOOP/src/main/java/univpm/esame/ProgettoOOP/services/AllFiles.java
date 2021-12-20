@@ -42,7 +42,7 @@ public class AllFiles {
 			return getAllFiles(allFiles);
 		}else {
 			//metti tutto questo dentro un filtro chiamato search filter
-			return getFilteredFiles(allFiles, fullName);
+			return searchFiles(allFiles, fullName);
 		}
 	}
 	/**
@@ -62,7 +62,7 @@ public class AllFiles {
 	 * @throws IncorrectFormatException Not correct format
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> getFilteredFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognisedException {
+	public ArrayList<AbstractObject> searchFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognisedException {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;

@@ -70,34 +70,35 @@ public class Converter implements AllConverters{
 	}
 
 	@SuppressWarnings("static-access")
-	public ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception {
+	public ArrayList<AbstractObject> JSONObjectToList(JSONObject fullJObj) throws Exception {
 		ArrayList<AbstractObject> allFiles=new ArrayList<AbstractObject>();
 		String[] splitName;
-		JSONArray obj2 = (JSONArray) obj.get("entries");
-		JSONObject obj3= new JSONObject();
+		JSONArray jArr = (JSONArray) fullJObj.get("entries");
+		JSONObject jEntries= new JSONObject();
 		Timestamp date= new Timestamp(0);
-		for (int i=0; i<obj2.size();i++) {
-			obj3=(JSONObject) obj2.get(i);
-			if (obj3.get(".tag").equals("file")) {
-				splitName = (String[])((String) obj3.get("name")).split("\\.");
+		//creates the arraylist of all files
+		for (int i=0; i<jArr.size();i++) {
+			jEntries=(JSONObject) jArr.get(i);
+			if (jEntries.get(".tag").equals("file")) {
+				//split name and extension from file's full name
+				splitName = (String[])((String) jEntries.get("name")).split("\\.");
 				if (splitName.length != 2) {
 				     throw new IncorrectFormatException("String not in correct format");
 				}
-				String dataRaw=(String)obj3.get("server_modified");
+				String dataRaw=(String)jEntries.get("server_modified");
 				String dataOk=dataRaw.replace("T", "\s");
 				dataOk=dataOk.replace("Z", "");
 				date=date.valueOf(dataOk);
-				File file=new File(splitName[0], splitName[1], (long)obj3.get("size"),(String)obj3.get("path_lower"),(String)obj3.get("id"),(boolean)obj3.get("has_explicit_shared_members"),(String)obj3.get("rev"), date);
+				File file=new File(splitName[0], splitName[1], (long)jEntries.get("size"),(String)jEntries.get("path_lower"),(String)jEntries.get("id"),(boolean)jEntries.get("has_explicit_shared_members"),(String)jEntries.get("rev"), date);
 				file.createUrl();
 				allFiles.add(file);
-			} else if (obj3.get(".tag").equals("folder")) {
-				Folder folder=new Folder((String)obj3.get("name"),(String)obj3.get("path_lower"),(String)obj3.get("id"));
+			} else if (jEntries.get(".tag").equals("folder")) {
+				Folder folder=new Folder((String)jEntries.get("name"),(String)jEntries.get("path_lower"),(String)jEntries.get("id"));
 				allFiles.add(folder);
 			} else throw new TypeNotRecognisedException("Type not recognised, must be File or Folder");
 		}
 		return allFiles;
 	}
-
 
 
 }

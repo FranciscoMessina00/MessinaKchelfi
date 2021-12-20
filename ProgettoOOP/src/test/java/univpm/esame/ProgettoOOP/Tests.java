@@ -4,12 +4,17 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.*;
+
+import static org.assertj.core.api.Assertions.fail;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
+import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.filter.*;
 import univpm.esame.ProgettoOOP.model.*;
+import univpm.esame.ProgettoOOP.services.AllFiles;
 /**
  * The class tests if the most important methods work
  * @author Francisco Messina
@@ -68,5 +73,21 @@ class Tests {
 	@Test
 	void testFilterDate() throws TypeNotRecognisedException {
 		assertEquals(filterDate.doFilter(list).get(0),file1);
+	}
+	/**
+	 * Tests if the IncorrectExceptionFormat is launched
+	 * @throws FileNotFoundException
+	 * @throws TypeNotRecognisedException
+	 */
+	@Test
+	void notCorrectFormatException() throws FileNotFoundException, TypeNotRecognisedException {
+		try {
+			AllFiles allFiles = new AllFiles();
+			allFiles.searchFiles(list, "File.txt.pdf");
+			//se l'eccezione non viene lanciata
+			fail("Exception not launched");
+		}catch(IncorrectFormatException e) {
+			e.printStackTrace();
+		}
 	}
 }
