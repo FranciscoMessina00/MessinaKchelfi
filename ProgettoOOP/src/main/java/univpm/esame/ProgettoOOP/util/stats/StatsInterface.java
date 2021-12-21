@@ -9,5 +9,5 @@ import univpm.esame.ProgettoOOP.model.AbstractObject;
 
 public interface StatsInterface  {
     public HashMap<String, Integer> StatsType(ArrayList<AbstractObject> file) throws TypeNotRecognisedException;
-    public ArrayList<AbstractObject> StatsSize(ArrayList<AbstractObject> file, long size);
+    public HashMap<String, ?> StatsSize(ArrayList<AbstractObject> files) throws TypeNotRecognisedException;
 } 

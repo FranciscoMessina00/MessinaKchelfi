@@ -1,6 +1,9 @@
 package univpm.esame.ProgettoOOP.util.stats;
 
 import java.util.HashMap;
+
+import org.springframework.validation.ObjectError;
+
 import java.util.ArrayList;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
@@ -11,9 +14,9 @@ import univpm.esame.ProgettoOOP.model.Folder;
 
 public class StatsManager implements StatsInterface {
 
-	public HashMap<String,Integer> StatsType(ArrayList<AbstractObject> files) throws TypeNotRecognisedException {
+	public HashMap<String, Integer> StatsType(ArrayList<AbstractObject> files) throws TypeNotRecognisedException {
 
-		HashMap<String,Integer> hmap = new HashMap<>();
+		HashMap<String, Integer> hmap = new HashMap<>();
 
 		for(int i=0; i<files.size()-1; i++){
 			if (files.get(i) instanceof File){
@@ -35,8 +38,30 @@ public class StatsManager implements StatsInterface {
 
 		return hmap;
 	}
-	public ArrayList<AbstractObject> StatsSize(ArrayList<AbstractObject> file, long size){
 
+	public HashMap<String, Object> StatsSize(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
+		HashMap<String, Object> hmap = new HashMap<>();
+
+		int cont = 0;
+		hmap.put("Total size", 0L);
+
+		for(int i=0; i<files.size()-1; i++){
+			if (files.get(i) instanceof File){
+				File file = (File)files.get(i);
+				hmap.replace("Total size", (Object)((Long)hmap.get("Total size") + file.getSize()));	
+
+			}
+			
+			else if (files.get(i) instanceof Folder){
+			cont++;
+			}
+
+			else throw new TypeNotRecognisedException("Type not recognised");
+		}
+
+		hmap.put("Number of files", (Object)(files.size()-cont));
+		hmap.put("Average size", (Object)((Float)hmap.get("Total size")/(Float)hmap.get("Number of files")));
+		return hmap;
 	}
 }
 
