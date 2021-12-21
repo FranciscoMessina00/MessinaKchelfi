@@ -1,7 +1,6 @@
 package univpm.esame.ProgettoOOP.model;
 
 import java.sql.Timestamp;
-import java.util.ArrayList;
 import univpm.esame.ProgettoOOP.converters.*;
 /**
  * File class that extends the abstract class AbstractObject

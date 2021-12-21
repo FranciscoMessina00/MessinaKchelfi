@@ -5,27 +5,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.model.File;
+import univpm.esame.ProgettoOOP.model.Folder;
 
 
 public class StatsType {
 
-	public static <Path> File getStatsType(ArrayList<AbstractObject> path) throws IncorrectFormatException {
+	public static HashMap<String,Integer> getStatsType(ArrayList<AbstractObject> files) throws IncorrectFormatException {
+		
+		HashMap<String,Integer> hmap = new HashMap<>();
+		Iterator<?> it = files.iterator();
+		while (it.hasNext()){
+			if (it.next() instanceof File){
+				File file = (File)it.next();
+				if(hmap.containsKey(file.getExtension())) {
+					hmap.replace(file.getExtension(), hmap.get(file.getExtension())+1);
+				}else hmap.put(file.getExtension(), 1);
 
-		AbstractObject file = new File();		
-		HashMap<Path, String> folders = new HashMap<>();
-		Iterator<?> it = path.iterator();
-
-		while(it.hasNext()) {
-			file = (File)it.next();
-
-			if(file.getTag().equals("Folder")) { 
-				throw new IncorrectFormatException ("I cant do this for a folder");
 			}
+			else if (it.next() instanceof Folder){
+				if(hmap.containsKey("Folders")) {
+					hmap.replace("Folders", hmap.get("Folders")+1);
+				}else hmap.put("Folders", 1);
+			}
+			else throw TypeNotRecognisedException("The type is not recognised");
 
 		}
-		return null;	
 	}
 }
 
