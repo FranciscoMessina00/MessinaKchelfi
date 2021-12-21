@@ -34,26 +34,26 @@ public class FilterSize {
 		if (logic.equalsIgnoreCase("greater")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!filterGreater(file.getSize())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}else {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!filterLower(file.getSize())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}

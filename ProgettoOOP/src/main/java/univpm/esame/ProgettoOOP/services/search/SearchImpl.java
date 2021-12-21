@@ -24,13 +24,13 @@ public class SearchImpl implements Search{
 	public ArrayList<Model> searchByExtension(ArrayList<Model> allFiles,String extension) throws TypeNotRecognisedException {
 		Iterator<Model> it=allFiles.iterator();
 		while(it.hasNext()){
-			Model abob=it.next();
-			if ( abob instanceof File) {
-				File file=(File)abob;
+			Model model=it.next();
+			if ( model instanceof File) {
+				File file=(File)model;
 				if(!file.getExtension().equals(extension)) {
 					it.remove();
 				}
-			}else if(abob instanceof Folder) {
+			}else if(model instanceof Folder) {
 				it.remove();
 			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
@@ -47,13 +47,13 @@ public class SearchImpl implements Search{
 	public ArrayList<Model> searchByName(ArrayList<Model> allFiles,String name) throws TypeNotRecognisedException {
 		Iterator<Model> it=allFiles.iterator();
 		while(it.hasNext()){
-			Model abob=it.next();
-			if ( abob instanceof File) {
-				File file=(File)abob;
+			Model model=it.next();
+			if ( model instanceof File) {
+				File file=(File)model;
 				if(!file.getName().contains(name)) {
 					it.remove();
 				}
-			}else if(abob instanceof Folder) {
+			}else if(model instanceof Folder) {
 				it.remove();
 			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}
@@ -71,13 +71,13 @@ public class SearchImpl implements Search{
 	public ArrayList<Model> searchBoth(ArrayList<Model> allFiles,String fullName) throws TypeNotRecognisedException {
 		Iterator<Model> it=allFiles.iterator();
 		while(it.hasNext()){
-			Model abob=it.next();
-			if ( abob instanceof File) {
-				File file=(File)abob;
+			Model model=it.next();
+			if ( model instanceof File) {
+				File file=(File)model;
 				if(!file.fullName().equals(fullName)) {
 					it.remove();
 				}
-			}else if(abob instanceof Folder) {
+			}else if(model instanceof Folder) {
 				it.remove();
 			}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 		}

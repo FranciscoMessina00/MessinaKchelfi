@@ -30,7 +30,7 @@ public class Converter implements AllConverters{
 		JSONObject obj=null;
 		
 		try {
-
+			//opens the connection with Dropbox
 			HttpURLConnection openConnection = (HttpURLConnection) new URL(url).openConnection();
 			openConnection.setRequestMethod("POST");
 			openConnection.setRequestProperty("Authorization",
@@ -85,11 +85,13 @@ public class Converter implements AllConverters{
 				if (splitName.length != 2) {
 				     throw new IncorrectFormatException("String not in correct format");
 				}
+				//create the time format with Timestamp
 				String dataRaw=(String)jEntries.get("server_modified");
 				String dataOk=dataRaw.replace("T", "\s");
 				dataOk=dataOk.replace("Z", "");
 				date=date.valueOf(dataOk);
 				File file=new File(splitName[0], splitName[1], (long)jEntries.get("size"),(String)jEntries.get("path_lower"),(String)jEntries.get("id"),(boolean)jEntries.get("has_explicit_shared_members"),(String)jEntries.get("rev"), date);
+				//creates the downloadable URL
 				file.createUrl();
 				allFiles.add(file);
 			} else if (jEntries.get(".tag").equals("folder")) {

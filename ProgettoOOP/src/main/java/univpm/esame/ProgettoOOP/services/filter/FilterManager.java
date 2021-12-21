@@ -42,6 +42,7 @@ public class FilterManager {
 		LinkedHashMap<String,?> filter=(LinkedHashMap<String,?>)filterParam.get("filter");
 		FilterSize filterSize=null;
 		FilterDate filterDate=null;
+		//we use a flag to see if we have at least 1 filter
 		boolean flag=false;
 		if (filter.size()==0) {
 			return files;

@@ -34,13 +34,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterGreater(file.getSize())||!date.filterGreater(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
@@ -48,13 +48,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterLower(file.getSize())||!date.filterGreater(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
@@ -76,13 +76,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("lower")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterLower(file.getSize())||!date.filterLower(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
@@ -99,13 +99,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterGreater(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
@@ -113,13 +113,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterLower(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
@@ -127,13 +127,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterGreater(file.getSize())&&!date.filterLower(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
@@ -141,13 +141,13 @@ public class FilterBoth {
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("lower")) {
 			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				Model abob=it.next();
-				if ( abob instanceof File) {
-					File file=(File)abob;
+				Model model=it.next();
+				if ( model instanceof File) {
+					File file=(File)model;
 					if(!size.filterLower(file.getSize())&&!date.filterLower(file.getModification_Date())) {
 						it.remove();
 					}
-				}else if(abob instanceof Folder) {
+				}else if(model instanceof Folder) {
 					it.remove();
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}

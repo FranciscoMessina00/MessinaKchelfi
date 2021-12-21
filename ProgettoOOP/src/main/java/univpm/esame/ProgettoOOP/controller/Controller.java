@@ -59,7 +59,7 @@ public class Controller {
 	/**
 	 * 
 	 * @return returns the stats of all files
-	 * @throws Exception
+	 * @throws Exception Exception
 	 */
 	@GetMapping("/stats")
 	public HashMap<String,HashMap<String,?>> seeStats() throws Exception {

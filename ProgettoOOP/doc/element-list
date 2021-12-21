@@ -2,7 +2,8 @@ univpm.esame.ProgettoOOP
 univpm.esame.ProgettoOOP.controller
 univpm.esame.ProgettoOOP.converters
 univpm.esame.ProgettoOOP.exception
-univpm.esame.ProgettoOOP.filter
 univpm.esame.ProgettoOOP.model
-univpm.esame.ProgettoOOP.search
 univpm.esame.ProgettoOOP.services
+univpm.esame.ProgettoOOP.services.filter
+univpm.esame.ProgettoOOP.services.search
+univpm.esame.ProgettoOOP.util.stats

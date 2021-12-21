@@ -25,7 +25,7 @@ public class AllFiles {
 	SearchImpl searchImpl;
 	/**
 	 * 
-	 * @param fullName file's name + extension
+	 * @param fullName file's name + extension we want to search
 	 * @return allFiles
 	 * @throws Exception exception
 	 */
@@ -38,10 +38,10 @@ public class AllFiles {
 				+ "}";
 		JSONObject files=converter.APIToJSONObject(url, jsonBody);
 		ArrayList<Model> allFiles = converter.JSONObjectToList(files);
+		//we control if a files is searched
 		if(fullName==null || fullName.equals("*.*")) {
 			return getAllFiles(allFiles);
 		}else {
-			//metti tutto questo dentro un filtro chiamato search filter
 			return searchFiles(allFiles, fullName);
 		}
 	}
@@ -66,6 +66,7 @@ public class AllFiles {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;
+		//we see if the format is correct e.g. "name.txt" or "*.txt" or "name.*"
 		if (splitName.length != 2) {
 			throw new IncorrectFormatException("Not correct format");
 		}else {
