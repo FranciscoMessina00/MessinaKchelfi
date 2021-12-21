@@ -55,7 +55,7 @@ public class Controller {
 		@GetMapping("/stats")
 		public HashMap<String, Integer> seeStats() throws Exception {
 			ArrayList<AbstractObject> files=allFiles.getFiles(null);
-			return StatsType.getStatsType(files);
+			return StatsManager.getStatsType(files);
 		}
 		
 	//	@PostMapping("/stats")

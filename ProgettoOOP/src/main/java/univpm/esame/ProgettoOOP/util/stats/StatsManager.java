@@ -9,9 +9,9 @@ import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
 
 
-public class StatsType {
+public class StatsManager implements StatsInterface {
 
-	public static HashMap<String,Integer> getStatsType(ArrayList<AbstractObject> files) throws TypeNotRecognisedException {
+	public HashMap<String,Integer> StatsType(ArrayList<AbstractObject> files) throws TypeNotRecognisedException {
 
 		HashMap<String,Integer> hmap = new HashMap<>();
 
@@ -34,6 +34,9 @@ public class StatsType {
 		}
 
 		return hmap;
+	}
+	public ArrayList<AbstractObject> StatsSize(ArrayList<AbstractObject> file, long size){
+
 	}
 }
 
