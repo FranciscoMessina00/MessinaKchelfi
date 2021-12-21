@@ -81,7 +81,16 @@ Nella chiamata `POST` `/files` bisogna specificare che è possibile oltre a filt
 Esempio chiamata `GET` `/stats`:
 
 
+Formattazione filtro
 
+	{
+    "filter":
+	    {
+	        "size":{"sizeFile":500,"logic":"greater"},
+	        "date":{"dateParam":"2021-12-10 12:12:00","logic":"lower"}
+    	},
+    	"operator":"and"
+	}
 
 
 
