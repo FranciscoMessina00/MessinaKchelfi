@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.model.File;
@@ -13,7 +12,7 @@ import univpm.esame.ProgettoOOP.model.Folder;
 
 public class StatsType {
 
-	public static HashMap<String,Integer> getStatsType(ArrayList<AbstractObject> files) throws IncorrectFormatException {
+	public static HashMap<String,Integer> getStatsType(ArrayList<AbstractObject> files) throws TypeNotRecognisedException {
 		
 		HashMap<String,Integer> hmap = new HashMap<>();
 		Iterator<?> it = files.iterator();
@@ -30,9 +29,10 @@ public class StatsType {
 					hmap.replace("Folders", hmap.get("Folders")+1);
 				}else hmap.put("Folders", 1);
 			}
-			else throw TypeNotRecognisedException("The type is not recognised");
+			else throw new TypeNotRecognisedException("Type not recognised");
 
 		}
+		return hmap;
 	}
 }
 

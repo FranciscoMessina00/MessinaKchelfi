@@ -11,5 +11,7 @@ public class StatsSize {
 		this.param=param;
 		this.contatore=contatore;
     }
-    public ArrayList<AbstractObject> doStatsSize(ArrayList<AbstractObject> files) throws Exception{}
+    public ArrayList<AbstractObject> doStatsSize(ArrayList<AbstractObject> files) throws Exception{
+    	return null;
+    }
 }
