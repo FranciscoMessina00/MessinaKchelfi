@@ -1,6 +1,7 @@
 package univpm.esame.ProgettoOOP.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import univpm.esame.ProgettoOOP.converters.AllConverters;
+import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.filter.FilterManager;
 import univpm.esame.ProgettoOOP.model.AbstractObject;
 import univpm.esame.ProgettoOOP.services.AllFiles;
+import univpm.esame.ProgettoOOP.util.stats.*;
 /**
  * The class is the controller that sets the paths in localhost:8080
  * @author Francisco Messina
@@ -49,12 +52,12 @@ public class Controller {
 		return FilterManager.getFilteredFiles(filterParam,files);
 	}
 
-	//	@GetMapping("/stats")
-	//	public String seeStats() {
-	//		
-	//		return stats;
-	//	}
-	//	
+		@GetMapping("/stats")
+		public HashMap<String, Integer> seeStats() throws Exception {
+			ArrayList<AbstractObject> files=allFiles.getFiles(null);
+			return StatsType.getStatsType(files);
+		}
+		
 	//	@PostMapping("/stats")
 	//	public String statsFilter(@RequestBody(required = false) JSONObject filter) throws Exception {
 	//		if (filter==null) {

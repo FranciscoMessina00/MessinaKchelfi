@@ -17,19 +17,19 @@ public class StatsType {
 		HashMap<String,Integer> hmap = new HashMap<>();
 		Iterator<?> it = files.iterator();
 		while (it.hasNext()){
-			if (it.next() instanceof File){
+			if (((AbstractObject)it.next()).getTag().equals("File")){
 				File file = (File)it.next();
 				if(hmap.containsKey(file.getExtension())) {
 					hmap.replace(file.getExtension(), hmap.get(file.getExtension())+1);
 				}else hmap.put(file.getExtension(), 1);
 
 			}
-			else if (it.next() instanceof Folder){
+			else if (((AbstractObject)it.next()).getTag().equals("Folder")){
 				if(hmap.containsKey("Folders")) {
 					hmap.replace("Folders", hmap.get("Folders")+1);
 				}else hmap.put("Folders", 1);
 			}
-			else throw new TypeNotRecognisedException("Type not recognised");
+	//		else throw new TypeNotRecognisedException("Type not recognised asdf");
 
 		}
 		return hmap;
