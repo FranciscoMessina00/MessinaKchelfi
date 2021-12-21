@@ -26,6 +26,8 @@ public class Controller {
 	AllConverters allConverters;
 	@Autowired
 	AllFiles allFiles;
+	@Autowired
+	StatsManager statsManager;
 	/**
 	 * 
 	 * @return returns an ArrayList of all the files in DropBox
@@ -53,9 +55,12 @@ public class Controller {
 	}
 
 		@GetMapping("/stats")
-		public HashMap<String, Integer> seeStats() throws Exception {
+		public HashMap<String,HashMap<String,?>> seeStats() throws Exception {
 			ArrayList<AbstractObject> files=allFiles.getFiles(null);
-			return StatsManager.getStatsType(files);
+			HashMap<String,HashMap<String,?>> stats=new HashMap<String,HashMap<String,?>>();
+			stats.put("Stats type",statsManager.StatsType(files));
+			stats.put("Stats size", statsManager.StatsSize(files));
+			return stats;
 		}
 		
 	//	@PostMapping("/stats")
