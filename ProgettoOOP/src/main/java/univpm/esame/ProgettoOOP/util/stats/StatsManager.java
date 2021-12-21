@@ -17,7 +17,7 @@ public class StatsManager implements StatsInterface {
 
 		HashMap<String, Long> hmap = new HashMap<>();
 
-		for(int i=0; i<files.size()-1; i++){
+		for(int i=0; i<files.size(); i++){
 			if (files.get(i) instanceof File){
 				File file = (File)files.get(i);
 				if(hmap.containsKey(file.getExtension())) {
@@ -44,21 +44,21 @@ public class StatsManager implements StatsInterface {
 		long cont = 0L;
 		hmap.put("Total size", 0L);
 
-		for(int i=0; i<files.size()-1; i++){
+		for(int i=0; i<files.size(); i++){
 			if (files.get(i) instanceof File){
 				File file = (File)files.get(i);
 				hmap.replace("Total size", (Object)((Long)hmap.get("Total size") + file.getSize()));	
 
 			}
-			
+
 			else if (files.get(i) instanceof Folder){
-			cont++;
+				cont++;
 			}
 
 			else throw new TypeNotRecognisedException("Type not recognised");
 		}
-
-		hmap.put("Number of files", (Object)(files.size()-cont));
+		long totFile=files.size()-cont;
+		hmap.put("Number of files", (Object)(totFile));
 		hmap.put("Average size", (Object)((Long)hmap.get("Total size")/(Long)hmap.get("Number of files")));
 		return hmap;
 	}
