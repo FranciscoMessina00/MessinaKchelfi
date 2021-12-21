@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 /* Esempio formato json su postman filtro:
  * {
     "filter":
@@ -31,7 +31,7 @@ public class FilterManager {
 	 * @throws TypeNotRecognisedException Type not recognised exception
 	 */
 	@SuppressWarnings({ "unchecked", "static-access" })
-	public static ArrayList<AbstractObject> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<AbstractObject> files) throws FilterException, TypeNotRecognisedException {
+	public static ArrayList<Model> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<Model> files) throws FilterException, TypeNotRecognisedException {
 		if(filterParam==null) {
 			return files;
 		}

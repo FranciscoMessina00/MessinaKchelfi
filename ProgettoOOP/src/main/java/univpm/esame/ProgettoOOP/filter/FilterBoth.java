@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
 /**
@@ -30,11 +30,11 @@ public class FilterBoth {
 	 * @return Files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> doAndFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
+	public ArrayList<Model> doAndFilter(ArrayList<Model> files) throws TypeNotRecognisedException{
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())||!date.filterGreater(file.getModification_Date())) {
@@ -46,9 +46,9 @@ public class FilterBoth {
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterLower(file.getSize())||!date.filterGreater(file.getModification_Date())) {
@@ -60,9 +60,9 @@ public class FilterBoth {
 			}
 		}
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())||!date.filterLower(file.getModification_Date())) {
@@ -74,9 +74,9 @@ public class FilterBoth {
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("lower")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterLower(file.getSize())||!date.filterLower(file.getModification_Date())) {
@@ -95,11 +95,11 @@ public class FilterBoth {
 	 * @return Files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> doOrFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
+	public ArrayList<Model> doOrFilter(ArrayList<Model> files) throws TypeNotRecognisedException{
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("greater")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
@@ -111,9 +111,9 @@ public class FilterBoth {
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("greater")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterLower(file.getSize())&&!date.filterGreater(file.getModification_Date())) {
@@ -125,9 +125,9 @@ public class FilterBoth {
 			}
 		}
 		if(size.getLogic().equals("greater")&&date.getLogic().equals("lower")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterGreater(file.getSize())&&!date.filterLower(file.getModification_Date())) {
@@ -139,9 +139,9 @@ public class FilterBoth {
 			}
 		}
 		if(size.getLogic().equals("lower")&&date.getLogic().equals("lower")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if ( abob instanceof File) {
 					File file=(File)abob;
 					if(!size.filterLower(file.getSize())&&!date.filterLower(file.getModification_Date())) {

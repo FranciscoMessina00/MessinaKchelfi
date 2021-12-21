@@ -4,7 +4,7 @@ package univpm.esame.ProgettoOOP.model;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
-public class Folder extends AbstractObject{
+public class Folder extends Model{
 	/**
 	 * Constructor of the class "Folder" without parameters
 	 */

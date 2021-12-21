@@ -21,10 +21,10 @@ public class SearchImpl implements Search{
 	 * @return all files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognisedException {
-		Iterator<AbstractObject> it=allFiles.iterator();
+	public ArrayList<Model> searchByExtension(ArrayList<Model> allFiles,String extension) throws TypeNotRecognisedException {
+		Iterator<Model> it=allFiles.iterator();
 		while(it.hasNext()){
-			AbstractObject abob=it.next();
+			Model abob=it.next();
 			if ( abob instanceof File) {
 				File file=(File)abob;
 				if(!file.getExtension().equals(extension)) {
@@ -44,10 +44,10 @@ public class SearchImpl implements Search{
 	 * @return all files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognisedException {
-		Iterator<AbstractObject> it=allFiles.iterator();
+	public ArrayList<Model> searchByName(ArrayList<Model> allFiles,String name) throws TypeNotRecognisedException {
+		Iterator<Model> it=allFiles.iterator();
 		while(it.hasNext()){
-			AbstractObject abob=it.next();
+			Model abob=it.next();
 			if ( abob instanceof File) {
 				File file=(File)abob;
 				if(!file.getName().contains(name)) {
@@ -68,10 +68,10 @@ public class SearchImpl implements Search{
 	 * @return all files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) throws TypeNotRecognisedException {
-		Iterator<AbstractObject> it=allFiles.iterator();
+	public ArrayList<Model> searchBoth(ArrayList<Model> allFiles,String fullName) throws TypeNotRecognisedException {
+		Iterator<Model> it=allFiles.iterator();
 		while(it.hasNext()){
-			AbstractObject abob=it.next();
+			Model abob=it.next();
 			if ( abob instanceof File) {
 				File file=(File)abob;
 				if(!file.fullName().equals(fullName)) {

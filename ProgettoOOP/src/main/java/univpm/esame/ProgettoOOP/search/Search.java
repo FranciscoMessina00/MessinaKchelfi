@@ -3,7 +3,7 @@ package univpm.esame.ProgettoOOP.search;
 import java.util.ArrayList;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 /**
  * This interface defines the searching methods
  * @author Francisco Messina
@@ -17,7 +17,7 @@ public interface Search {
 	 * @return all files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchByExtension(ArrayList<AbstractObject> allFiles,String extension) throws TypeNotRecognisedException;
+	public ArrayList<Model> searchByExtension(ArrayList<Model> allFiles,String extension) throws TypeNotRecognisedException;
 	/**
 	 * Searches all files with certain name e.g. "name.*"
 	 * @param allFiles array of all files
@@ -25,7 +25,7 @@ public interface Search {
 	 * @return all files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchByName(ArrayList<AbstractObject> allFiles,String name) throws TypeNotRecognisedException;
+	public ArrayList<Model> searchByName(ArrayList<Model> allFiles,String name) throws TypeNotRecognisedException;
 	/**
 	 * Searches all files with specific name e.g. "name.txt"
 	 * @param allFiles array of all files
@@ -33,5 +33,5 @@ public interface Search {
 	 * @return all files filtered
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchBoth(ArrayList<AbstractObject> allFiles,String fullName) throws TypeNotRecognisedException;
+	public ArrayList<Model> searchBoth(ArrayList<Model> allFiles,String fullName) throws TypeNotRecognisedException;
 }

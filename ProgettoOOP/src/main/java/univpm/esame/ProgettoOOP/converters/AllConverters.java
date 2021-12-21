@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import org.json.simple.JSONObject;
 
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 /**
  * The interface defines the converters
  * @author Francisco Messina
@@ -23,5 +23,5 @@ public interface AllConverters {
 	 * @return Converts the JSONObjet to a more simple ArrayList of AbstractObject
 	 * @throws Exception Exception
 	 */
-	public ArrayList<AbstractObject> JSONObjectToList(JSONObject obj) throws Exception;
+	public ArrayList<Model> JSONObjectToList(JSONObject obj) throws Exception;
 }

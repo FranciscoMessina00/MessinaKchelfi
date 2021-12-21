@@ -4,7 +4,7 @@ package univpm.esame.ProgettoOOP.model;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
-public abstract class AbstractObject {
+public abstract class Model {
     
     protected String name;
     protected String path;
@@ -14,7 +14,7 @@ public abstract class AbstractObject {
     /**
      * Constructor of the Class without parameters
      */
-	public AbstractObject() {
+	public Model() {
 		this.name=null;
 		this.path=null;
 		this.tag=null;
@@ -29,7 +29,7 @@ public abstract class AbstractObject {
 	 * @param tag Defines the type of "object" es. "File" or "Folder"
 	 * @param id Identifier of the object
 	 */
-	public AbstractObject(String name, String path, String tag, String id) {
+	public Model(String name, String path, String tag, String id) {
 		this.name = name;
 		this.path = path;
 		this.tag = tag;

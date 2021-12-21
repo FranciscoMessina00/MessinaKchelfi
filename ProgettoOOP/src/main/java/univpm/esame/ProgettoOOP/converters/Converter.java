@@ -16,7 +16,7 @@ import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
 /**
@@ -70,8 +70,8 @@ public class Converter implements AllConverters{
 	}
 
 	@SuppressWarnings("static-access")
-	public ArrayList<AbstractObject> JSONObjectToList(JSONObject fullJObj) throws Exception {
-		ArrayList<AbstractObject> allFiles=new ArrayList<AbstractObject>();
+	public ArrayList<Model> JSONObjectToList(JSONObject fullJObj) throws Exception {
+		ArrayList<Model> allFiles=new ArrayList<Model>();
 		String[] splitName;
 		JSONArray jArr = (JSONArray) fullJObj.get("entries");
 		JSONObject jEntries= new JSONObject();

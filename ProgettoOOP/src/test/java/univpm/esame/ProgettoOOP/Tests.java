@@ -28,7 +28,7 @@ class Tests {
 	Timestamp date=new Timestamp(0);
 	private File file1;
 	private File file2;
-	private ArrayList<AbstractObject> list;
+	private ArrayList<Model> list;
 	private FilterSize filterSize;
 	private FilterDate filterDate;
 	/**
@@ -37,7 +37,7 @@ class Tests {
 	@SuppressWarnings("static-access")
 	@BeforeEach
 	void setUp() {
-		list=new ArrayList<AbstractObject>();
+		list=new ArrayList<Model>();
 		file1=new File("File1","pdf",1000L,"/cartella/File1","123asdf", false,"321fdsa", date.valueOf("2021-12-12 00:00:01"));
 		list.add(file1);
 		file2=new File("File2","txt",3000L,"/cartella/File2","456ghjk", false,"654kjhg", date.valueOf("2021-12-14 00:00:01"));

@@ -6,14 +6,14 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
 
 @Service
 public class StatsManager implements StatsInterface {
 
-	public HashMap<String, Long> StatsType(ArrayList<AbstractObject> files) throws TypeNotRecognisedException {
+	public HashMap<String, Long> StatsType(ArrayList<Model> files) throws TypeNotRecognisedException {
 
 		HashMap<String, Long> hmap = new HashMap<>();
 
@@ -38,7 +38,7 @@ public class StatsManager implements StatsInterface {
 		return hmap;
 	}
 
-	public HashMap<String, Object> StatsSize(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
+	public HashMap<String, Object> StatsSize(ArrayList<Model> files) throws TypeNotRecognisedException{
 		HashMap<String, Object> hmap = new HashMap<>();
 
 		long cont = 0L;

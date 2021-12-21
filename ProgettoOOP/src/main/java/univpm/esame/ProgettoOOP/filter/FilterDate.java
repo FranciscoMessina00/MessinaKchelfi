@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.model.AbstractObject;
+import univpm.esame.ProgettoOOP.model.Model;
 import univpm.esame.ProgettoOOP.model.File;
 import univpm.esame.ProgettoOOP.model.Folder;
 /**
@@ -31,11 +31,11 @@ public class FilterDate {
 	 * @return The files filtered by size
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> doFilter(ArrayList<AbstractObject> files) throws TypeNotRecognisedException{
+	public ArrayList<Model> doFilter(ArrayList<Model> files) throws TypeNotRecognisedException{
 		if (logic.equalsIgnoreCase("greater")) {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if (abob instanceof File) {
 					File file=(File)abob;
 					if(!filterGreater(file.getModification_Date())) {
@@ -46,9 +46,9 @@ public class FilterDate {
 				}else throw new TypeNotRecognisedException("The type isn't a File or Folder");
 			}
 		}else {
-			Iterator<AbstractObject> it=files.iterator();
+			Iterator<Model> it=files.iterator();
 			while(it.hasNext()){
-				AbstractObject abob=it.next();
+				Model abob=it.next();
 				if (abob instanceof File) {
 					File file=(File)abob;
 					if(!filterLower(file.getModification_Date())) {

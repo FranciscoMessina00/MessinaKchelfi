@@ -7,7 +7,7 @@ import univpm.esame.ProgettoOOP.converters.*;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
-public class File extends AbstractObject{
+public class File extends Model{
 	private String extension;
 	private long size;
 	private boolean shared;

@@ -29,7 +29,7 @@ public class AllFiles {
 	 * @return allFiles
 	 * @throws Exception exception
 	 */
-	public ArrayList<AbstractObject> getFiles(String fullName) throws Exception{
+	public ArrayList<Model> getFiles(String fullName) throws Exception{
 		String url="https://api.dropboxapi.com/2/files/list_folder";
 		String jsonBody="{\r\n" + "    \"path\": \"\",\r\n" + "    \"recursive\": true,\r\n"
 				+ "    \"include_media_info\": true,\r\n" + "    \"include_deleted\": false,\r\n"
@@ -37,7 +37,7 @@ public class AllFiles {
 				+ "    \"include_mounted_folders\": true,\r\n" + "    \"include_non_downloadable_files\": true\r\n"
 				+ "}";
 		JSONObject files=converter.APIToJSONObject(url, jsonBody);
-		ArrayList<AbstractObject> allFiles = converter.JSONObjectToList(files);
+		ArrayList<Model> allFiles = converter.JSONObjectToList(files);
 		if(fullName==null || fullName.equals("*.*")) {
 			return getAllFiles(allFiles);
 		}else {
@@ -50,7 +50,7 @@ public class AllFiles {
 	 * @param allFilesNotFiltered all files
 	 * @return allFilesNotFiltered
 	 */
-	public ArrayList<AbstractObject> getAllFiles(ArrayList<AbstractObject> allFilesNotFiltered) {
+	public ArrayList<Model> getAllFiles(ArrayList<Model> allFilesNotFiltered) {
 		return allFilesNotFiltered;
 	}
 	/**
@@ -62,7 +62,7 @@ public class AllFiles {
 	 * @throws IncorrectFormatException Not correct format
 	 * @throws TypeNotRecognisedException Exception
 	 */
-	public ArrayList<AbstractObject> searchFiles(ArrayList<AbstractObject> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognisedException {
+	public ArrayList<Model> searchFiles(ArrayList<Model> allFilesFiltered, String fullName) throws FileNotFoundException, IncorrectFormatException, TypeNotRecognisedException {
 		String[] splitName = fullName.split("\\.");
 		String extension;
 		String name;
