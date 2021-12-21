@@ -3,8 +3,6 @@ package univpm.esame.ProgettoOOP.util.stats;
 import java.util.HashMap;
 
 import org.springframework.stereotype.Service;
-import org.springframework.validation.ObjectError;
-
 import java.util.ArrayList;
 
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
