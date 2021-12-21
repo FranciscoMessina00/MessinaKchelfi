@@ -1,4 +1,4 @@
-package univpm.esame.ProgettoOOP.search;
+package univpm.esame.ProgettoOOP.services.search;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -11,7 +11,7 @@ import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.*;
-import univpm.esame.ProgettoOOP.search.SearchImpl;
+import univpm.esame.ProgettoOOP.services.search.SearchImpl;
 /**
  * The class calls the Dropbox API /list_folder and can either return all or some files
  * @author Francisco Messina

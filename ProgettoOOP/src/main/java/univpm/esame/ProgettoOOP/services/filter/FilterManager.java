@@ -1,8 +1,11 @@
-package univpm.esame.ProgettoOOP.filter;
+package univpm.esame.ProgettoOOP.services.filter;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+
+import org.springframework.stereotype.Service;
+
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.Model;
@@ -21,6 +24,7 @@ import univpm.esame.ProgettoOOP.model.Model;
  * @author Francisco Messina
  * @author Amine Kchelfi
  */
+@Service
 public class FilterManager {
 	/**
 	 * The method calls specific filters
@@ -31,7 +35,7 @@ public class FilterManager {
 	 * @throws TypeNotRecognisedException Type not recognised exception
 	 */
 	@SuppressWarnings({ "unchecked", "static-access" })
-	public static ArrayList<Model> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<Model> files) throws FilterException, TypeNotRecognisedException {
+	public ArrayList<Model> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<Model> files) throws FilterException, TypeNotRecognisedException {
 		if(filterParam==null) {
 			return files;
 		}

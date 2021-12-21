@@ -12,9 +12,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.IncorrectFormatException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
-import univpm.esame.ProgettoOOP.filter.*;
 import univpm.esame.ProgettoOOP.model.*;
 import univpm.esame.ProgettoOOP.services.AllFiles;
+import univpm.esame.ProgettoOOP.services.filter.*;
 /**
  * The class tests if the most important methods work
  * @author Francisco Messina

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import univpm.esame.ProgettoOOP.converters.AllConverters;
-import univpm.esame.ProgettoOOP.filter.FilterManager;
 import univpm.esame.ProgettoOOP.model.Model;
 import univpm.esame.ProgettoOOP.services.AllFiles;
+import univpm.esame.ProgettoOOP.services.filter.FilterManager;
 import univpm.esame.ProgettoOOP.util.stats.*;
 /**
  * The class is the controller that sets the paths in localhost:8080
@@ -29,6 +29,8 @@ public class Controller {
 	AllFiles allFiles;
 	@Autowired
 	StatsManager statsManager;
+	@Autowired
+	FilterManager filterManager;
 	/**
 	 * 
 	 * @return returns an ArrayList of all the files in DropBox
@@ -52,7 +54,7 @@ public class Controller {
 			@RequestBody(required=false) LinkedHashMap<?,?> filterParam)
 					throws Exception {
 		ArrayList<Model> files=allFiles.getFiles(fullName);
-		return FilterManager.getFilteredFiles(filterParam,files);
+		return filterManager.getFilteredFiles(filterParam,files);
 	}
 	/**
 	 * 
@@ -80,7 +82,7 @@ public class Controller {
 			@RequestBody(required=false) LinkedHashMap<?,?> filterParam)
 					throws Exception {
 		ArrayList<Model> files=allFiles.getFiles(fullName);
-		files=FilterManager.getFilteredFiles(filterParam,files);
+		files=filterManager.getFilteredFiles(filterParam,files);
 		HashMap<String,HashMap<String,?>> stats=new HashMap<String,HashMap<String,?>>();
 		stats.put("Stats type",statsManager.StatsType(files));
 		stats.put("Stats size", statsManager.StatsSize(files));
