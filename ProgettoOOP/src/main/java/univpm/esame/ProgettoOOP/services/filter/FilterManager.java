@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 
 import org.springframework.stereotype.Service;
 
+import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.Model;
@@ -33,15 +34,17 @@ public class FilterManager {
 	 * @return all the files filtered
 	 * @throws FilterException Filter exception
 	 * @throws TypeNotRecognisedException Type not recognised exception
+	 * @throws FileNotFoundException File not found
 	 */
 	@SuppressWarnings({ "unchecked", "static-access" })
-	public ArrayList<Model> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<Model> files) throws FilterException, TypeNotRecognisedException {
+	public ArrayList<Model> getFilteredFiles(LinkedHashMap<?,?> filterParam, ArrayList<Model> files) throws FilterException, TypeNotRecognisedException, FileNotFoundException {
 		if(filterParam==null) {
 			return files;
 		}
 		LinkedHashMap<String,?> filter=(LinkedHashMap<String,?>)filterParam.get("filter");
 		FilterSize filterSize=null;
 		FilterDate filterDate=null;
+		ArrayList<Model> filteredFiles= new ArrayList<Model>();
 		//we use a flag to see if we have at least 1 filter
 		boolean flag=false;
 		if (filter.size()==0) {
@@ -73,8 +76,8 @@ public class FilterManager {
 			}
 			if (!flag) throw new FilterException("Filter not recognised");
 			if(filter.size()==1) {
-				if (filter.containsKey("size"))return filterSize.doFilter(files);
-				if (filter.containsKey("date"))return filterDate.doFilter(files);
+				if (filter.containsKey("size"))filteredFiles= filterSize.doFilter(files);
+				if (filter.containsKey("date"))filteredFiles= filterDate.doFilter(files);
 			}else if(filter.size()==2) {
 				String operator=(String)filterParam.get("operator");
 				FilterBoth filterBoth=new FilterBoth(filterDate,filterSize);
@@ -82,13 +85,14 @@ public class FilterManager {
 					throw new FilterException("Filter in wrong format");
 				}
 				if(operator.equalsIgnoreCase("and")) {
-					return filterBoth.doAndFilter(files);
+					filteredFiles= filterBoth.doAndFilter(files);
 				}else if(operator.equalsIgnoreCase("or")) {
-					return filterBoth.doOrFilter(files);
+					filteredFiles= filterBoth.doOrFilter(files);
 				}else throw new FilterException("Wrong operator");
 			}else throw new FilterException("Filter not in correct format");
 
 		}
-		return null;
+		if(filteredFiles.isEmpty()) throw new FileNotFoundException("Files not found");
+		return filteredFiles;
 	}
 }
