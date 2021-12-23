@@ -27,9 +27,11 @@ public class AllFiles {
 	 * 
 	 * @param fullName file's name + extension we want to search
 	 * @return allFiles
-	 * @throws Exception exception
+	 * @throws TypeNotRecognisedException Exception
+	 * @throws IncorrectFormatException Exception
+	 * @throws FileNotFoundException Exception
 	 */
-	public ArrayList<Model> getFiles(String fullName) throws Exception{
+	public ArrayList<Model> getFiles(String fullName) throws IncorrectFormatException, TypeNotRecognisedException, FileNotFoundException{
 		String url="https://api.dropboxapi.com/2/files/list_folder";
 		String jsonBody="{\r\n" + "    \"path\": \"\",\r\n" + "    \"recursive\": true,\r\n"
 				+ "    \"include_media_info\": true,\r\n" + "    \"include_deleted\": false,\r\n"

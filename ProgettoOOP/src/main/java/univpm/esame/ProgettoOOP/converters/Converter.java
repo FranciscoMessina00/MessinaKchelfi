@@ -70,7 +70,7 @@ public class Converter implements AllConverters{
 	}
 
 	@SuppressWarnings("static-access")
-	public ArrayList<Model> JSONObjectToList(JSONObject fullJObj) throws Exception {
+	public ArrayList<Model> JSONObjectToList(JSONObject fullJObj) throws IncorrectFormatException, TypeNotRecognisedException {
 		ArrayList<Model> allFiles=new ArrayList<Model>();
 		String[] splitName;
 		JSONArray jArr = (JSONArray) fullJObj.get("entries");
