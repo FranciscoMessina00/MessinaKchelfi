@@ -2,7 +2,7 @@
 Progetto di Programmazione Ad Oggetti 2021/2022, Università Politecnica delle Marche.
 
 # Specifiche del progetto :clipboard:
-Il progetto è un Web Service che permette tramite un client (es. [Postman](https://www.postman.com/)) di accedere alle [API di Dropbox](https://www.dropbox.com/developers/documentation/http/documentation) tramite diverse [rotte](https://github.com/FranciscoMessina00/MessinaKchelfi#richieste-e-rotte) per visualizzare:
+Il progetto è un Web Service che permette tramite un client (es. [Postman](https://www.postman.com/)) di accedere alle [API di Dropbox](https://www.dropbox.com/developers/documentation/http/documentation) tramite diverse [rotte](https://github.com/FranciscoMessina00/MessinaKchelfi#richieste-e-rotte-round_pushpin) per visualizzare:
 
 1) Tutti i file e cartelle in Dropbox;
 2) File filtrati per peso e/o data modifica;
@@ -94,7 +94,7 @@ Esempio di chiamata alla rotta `GET` `/stats`:
     }
 }
 ```
-Nelle chiamate `POST` `/files` e `POST` `/stats`, oltre a filtrare i file per peso e/o data modifica (i [filtri](https://github.com/FranciscoMessina00/MessinaKchelfi#filtri) sono spiegati più avanti), è anche possibile fare una ricerca per nome (ricerca se esiste un file che *contiene* quel nome) e/o tipo di file (utilizzando caratteri *jolly*  "*") come nei seguenti esempi:
+Nelle chiamate `POST` `/files` e `POST` `/stats`, oltre a filtrare i file per peso e/o data modifica (i [filtri](https://github.com/FranciscoMessina00/MessinaKchelfi#filtri-vertical_traffic_light) sono spiegati più avanti), è anche possibile fare una ricerca per nome (ricerca se esiste un file che *contiene* quel nome) e/o tipo di file (utilizzando caratteri *jolly*  "*") come nei seguenti esempi:
 - `https://localhost:8080/files?fullName=name.*`
 - `https://localhost:8080/files?fullName=*.txt`
 - `https://localhost:8080/files?fullName=name.txt`
