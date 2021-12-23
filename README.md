@@ -72,7 +72,8 @@ Esempio di chiamata alla rotta `GET` `/files`:
         "modification_Date": "2021-01-18T12:13:43.000+00:00"
     }
 	]
-Nella chiamata `POST` `/files` bisogna specificare che è possibile oltre a filtrare i file per peso e/o data modifica (i filtri sono spiegati più avanti), è possibile fare una ricerca per nome e/o estensione con il carattere *jolly* * come nei seguenti esempi:
+
+Nella chiamata `POST` `/files` bisogna specificare che è possibile oltre a filtrare i file per peso e/o data modifica (i filtri sono spiegati più avanti), fare anche una ricerca per nome e/o tipo di file (utilizzando caratteri *jolly*  "*") come nei seguenti esempi:
 - `https://localhost:8080/files?fullName=name.*`
 - `https://localhost:8080/files?fullName=*.txt`
 - `https://localhost:8080/files?fullName=name.txt`
@@ -80,13 +81,17 @@ Nella chiamata `POST` `/files` bisogna specificare che è possibile oltre a filt
 
 Esempio di chiamata alla rotta `GET` `/stats`:
 
+Esempio di chiamata alla rotta `POST` `/stats`:
+
+
 ## Filtri
 
-| Richiesta | Descizione | Esempio |
+| Richiesta | Descizione |
 |:---:|:---:|:---:|
-| size | Restituisce tutti i file filtrati per grandezza|
-| date |  Restituisce tutti i file filtrati per data |
-
+| size | Restituisce tutti i file filtrati per grandezza| 
+`{"filter":{"size":{"sizeFile":500,"logic":"greater"}}`
+| date |  Restituisce tutti i file filtrati per data|
+`{"filter":{"date":{"dateParam":"2021-12-10 12:12:00","logic":"lower"}`
 
 E' possibile concatenare più filtri attraverso gli operatori condizionali   `and`    e     `or`     ad esempio :
 
