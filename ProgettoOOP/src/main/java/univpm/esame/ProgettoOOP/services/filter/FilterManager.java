@@ -10,7 +10,7 @@ import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.Model;
-/* Esempio formato json su postman filtro:
+/* Esempio formato Json su Postman filtro:
  * {
     "filter":
     {

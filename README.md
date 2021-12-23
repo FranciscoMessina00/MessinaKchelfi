@@ -1,8 +1,8 @@
 # MessinaKchelfi
-Progetto di Programmazione Ad Oggetti 2021/2022, UNIVPM.
+Progetto di Programmazione Ad Oggetti 2021/2022, Università Politecnica delle Marche.
 
 # Specifiche del progetto:
-Il progetto è un Web Service che permette tramite un client come Postman di accedere alle API di Dropbox tramite diverse rotte per visualizzare:
+Il progetto è un Web Service che permette tramite un client (es. Postman) di accedere alle API di Dropbox tramite diverse rotte per visualizzare:
 
 1) Tutti i file e cartelle in Dropbox;
 2) File filtrati per peso e/o data modifica;
@@ -17,7 +17,7 @@ Il progetto è un Web Service che permette tramite un client come Postman di acc
 - ID del file in Dropbox;
 - Codice che identifica la versione del file;
 - Peso del file;
-- Indicazione se il file è condiviso;
+- Indicazione s e il file è condiviso;
 - Data di ultima modifica;
 - Url per scaricare il file;
 
@@ -38,7 +38,7 @@ Attraverso [SpringBoot](https://spring.io/projects/spring-boot), il framework ut
 | `POST` | /stats | Restituisce le statistiche dei file filtrati per peso e/o data modifica |
 
 ## Esempi di chiamate
-Esempio chiamata `GET` `/files`:
+Esempio di chiamata alla rotta `GET` `/files`:
 
 	[
     {
@@ -78,10 +78,17 @@ Nella chiamata `POST` `/files` bisogna specificare che è possibile oltre a filt
 - `https://localhost:8080/files?fullName=name.txt`
 - `https://localhost:8080/files?fullName=*.*`
 
-Esempio chiamata `GET` `/stats`:
+Esempio di chiamata alla rotta `GET` `/stats`:
+
+## Filtri
+
+| Richiesta | Descizione | Esempio |
+|:---:|:---:|:---:|
+| size | Restituisce tutti i file filtrati per grandezza|
+| date |  Restituisce tutti i file filtrati per data |
 
 
-Formattazione filtro
+E' possibile concatenare più filtri attraverso gli operatori condizionali   `and`    e     `or`     ad esempio :
 
 	{
     "filter":
@@ -94,5 +101,7 @@ Formattazione filtro
 
 
 
+## Autori
+**Messina Francisco** : https://github.com/FranciscoMessina00
 
-
+**Kchelfi Mohamed Amine** : https://github.com/aminekchelfi
