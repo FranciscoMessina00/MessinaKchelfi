@@ -83,15 +83,13 @@ Esempio di chiamata alla rotta `GET` `/stats`:
 
 Esempio di chiamata alla rotta `POST` `/stats`:
 
-
 ## Filtri
 
-| Richiesta | Descizione |
+| Richiesta | Descizione | Esempio |
 |:---:|:---:|:---:|
-| size | Restituisce tutti i file filtrati per grandezza| 
-`{"filter":{"size":{"sizeFile":500,"logic":"greater"}}`
-| date |  Restituisce tutti i file filtrati per data|
-`{"filter":{"date":{"dateParam":"2021-12-10 12:12:00","logic":"lower"}`
+| size | Restituisce tutti i file filtrati per grandezza| `{"filter":{"size":{"sizeFile":500,"logic":"greater"}}`
+| date |  Restituisce tutti i file filtrati per data| `{"filter":{"date":{"dateParam":"2021-12-10 12:12:00","logic":"lower"}`
+
 
 E' possibile concatenare più filtri attraverso gli operatori condizionali   `and`    e     `or`     ad esempio :
 
@@ -108,5 +106,4 @@ E' possibile concatenare più filtri attraverso gli operatori condizionali   `an
 
 ## Autori
 **Messina Francisco** : https://github.com/FranciscoMessina00
-
 **Kchelfi Mohamed Amine** : https://github.com/aminekchelfi
