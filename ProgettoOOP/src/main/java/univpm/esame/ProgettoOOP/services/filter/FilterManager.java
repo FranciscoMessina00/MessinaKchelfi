@@ -10,16 +10,7 @@ import univpm.esame.ProgettoOOP.exception.FileNotFoundException;
 import univpm.esame.ProgettoOOP.exception.FilterException;
 import univpm.esame.ProgettoOOP.exception.TypeNotRecognisedException;
 import univpm.esame.ProgettoOOP.model.Model;
-/* Esempio formato Json su Postman filtro:
- * {
-    "filter":
-    {
-        "size":{"sizeFile":250,"logic":"lower"},
-        "date":{"dateParam":"2021-12-16 12:12:00","logic":"lower"}
-    },
-    "operator":"and"
-	}
- */
+
 /**
  * The class manages the two filters, the last modification date and size filter
  * @author Francisco Messina
