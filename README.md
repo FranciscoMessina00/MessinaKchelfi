@@ -73,25 +73,39 @@ Esempio di chiamata alla rotta `GET` `/files`:
     }
 	]
 
-Nella chiamata `POST` `/files` bisogna specificare che è possibile oltre a filtrare i file per peso e/o data modifica (i filtri sono spiegati più avanti), fare anche una ricerca per nome e/o tipo di file (utilizzando caratteri *jolly*  "*") come nei seguenti esempi:
+Esempio di chiamata alla rotta `GET` `/stats`:
+	
+	{
+    "Stats type": {
+        "jpg": 1,
+        "mp3": 4,
+        "folders": 3,
+        "pdf": 1,
+        "exe": 2,
+        "url": 1
+    },
+    "Stats size": {
+        "Number of files": 9,
+        "Total size": 286292587,
+        "Average size": 31810287
+    }
+	}
+
+Nelle chiamate `POST` `/files` e `POST` `/stats`, oltre a filtrare i file per peso e/o data modifica (i filtri sono spiegati più avanti), è anche possibile fare una ricerca per nome (ricerca se esiste un file che *contiene* quel nome) e/o tipo di file (utilizzando caratteri *jolly*  "*") come nei seguenti esempi:
 - `https://localhost:8080/files?fullName=name.*`
 - `https://localhost:8080/files?fullName=*.txt`
 - `https://localhost:8080/files?fullName=name.txt`
 - `https://localhost:8080/files?fullName=*.*`
-
-Esempio di chiamata alla rotta `GET` `/stats`:
-
-Esempio di chiamata alla rotta `POST` `/stats`:
-
 ## Filtri
-
+I filtri vengono implementati nel body delle chiamate `POST`.
 | Richiesta | Descizione | Esempio |
 |:---:|:---:|:---:|
-| size | Restituisce tutti i file filtrati per grandezza| `{"filter":{"size":{"sizeFile":500,"logic":"greater"}}`
-| date |  Restituisce tutti i file filtrati per data| `{"filter":{"date":{"dateParam":"2021-12-10 12:12:00","logic":"lower"}`
+| `size` | Restituisce tutti i file filtrati per grandezza| { "filter":{"size":{ "sizeFile":500, "logic":"greater"} }|
+| `date` |  Restituisce tutti i file filtrati per data| { "filter":{ "date":{ "dateParam":"2021-12-10 12:12:00", "logic":"lower"}|
 
+`sizeFile` rappresenta il peso in bytes, `dateParam` rappresenta la data (AAA-MM-GG hh:mm:ss) in formato Timestamp, mentre `logic` può assumere i valori `lower` (minore del parametro) e `greater` (maggiore del parametro). 
 
-E' possibile concatenare più filtri attraverso gli operatori condizionali   `and`    e     `or`     ad esempio :
+È possibile concatenare più filtri attraverso gli operatori condizionali `and` e `or` ad esempio :
 
 	{
     "filter":
@@ -106,4 +120,5 @@ E' possibile concatenare più filtri attraverso gli operatori condizionali   `an
 
 ## Autori
 **Messina Francisco** : https://github.com/FranciscoMessina00
+
 **Kchelfi Mohamed Amine** : https://github.com/aminekchelfi
